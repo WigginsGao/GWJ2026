@@ -19,25 +19,26 @@
   <meta name="author" content="Wenjun Gao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="QWidget的enable属性   API 说明    isEnabled() 获取到控件的可⽤状态.   setEnabled 设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤.     所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的. 如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤.   代码创建一个按钮被禁用1234&#x2F;&#x2F;使⽤代码创建">
+    <meta name="description" content="QWidget的enable属性   API 说明    isEnabled() 获取到控件的可⽤状态.   setEnabled 设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤.     所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的. 如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤.   代码创建一个按钮被禁用1234&#x2F;&#x2F;使⽤代码创">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QT常用控件">
+<meta property="og:title" content="QT常用控件--QWidget">
 <meta property="og:url" content="https://wigginsgao.github.io/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/index.html">
 <meta property="og:site_name" content="南桥几晴秋">
-<meta property="og:description" content="QWidget的enable属性   API 说明    isEnabled() 获取到控件的可⽤状态.   setEnabled 设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤.     所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的. 如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤.   代码创建一个按钮被禁用1234&#x2F;&#x2F;使⽤代码创建">
+<meta property="og:description" content="QWidget的enable属性   API 说明    isEnabled() 获取到控件的可⽤状态.   setEnabled 设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤.     所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的. 如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤.   代码创建一个按钮被禁用1234&#x2F;&#x2F;使⽤代码创">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://wigginsgao.github.io/GWJ2026/img/4.png">
 <meta property="article:published_time" content="2026-01-03T08:26:17.400Z">
-<meta property="article:modified_time" content="2026-01-03T14:35:39.009Z">
+<meta property="article:modified_time" content="2026-01-06T09:49:33.643Z">
 <meta property="article:author" content="Wenjun Gao">
 <meta property="article:tag" content="Qt">
 <meta property="article:tag" content="常用控件">
+<meta property="article:tag" content="QWidget">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://wigginsgao.github.io/GWJ2026/img/4.png">
   
   
   
-  <title>QT常用控件 - 南桥几晴秋</title>
+  <title>QT常用控件--QWidget - 南桥几晴秋</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="QT常用控件"></span>
+            <span id="subtitle" data-typed-text="QT常用控件--QWidget"></span>
           
         </div>
 
@@ -227,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          319 字
+          3k 字
         
       </span>
     
@@ -239,7 +240,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          25 分钟
         
       </span>
     
@@ -276,12 +277,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">QT常用控件</h1>
+            <h1 id="seo-header">QT常用控件--QWidget</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="QWidget的enable属性"><a href="#QWidget的enable属性" class="headerlink" title="QWidget的enable属性"></a>QWidget的enable属性</h1><table>
+                <hr>
+<h1 id="QWidget的enable属性"><a href="#QWidget的enable属性" class="headerlink" title="QWidget的enable属性"></a>QWidget的enable属性</h1><table>
 <thead>
 <tr>
 <th>API</th>
@@ -318,7 +320,218 @@
 <li>在QtDesigner中创建按钮的时候,可以设置按钮的初始状态是”可⽤”还是”禁⽤”</li>
 </ul>
 <p>如果把enabled这⼀列的对钩去掉,则按钮的初始状态就是”禁⽤”状态</p>
-<img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/20260103223152737.png" srcset="/GWJ2026/img/loading.gif" lazyload style="zoom: 67%;">
+<img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/%E5%8A%A8%E7%94%BB.gif" srcset="/GWJ2026/img/loading.gif" lazyload style="zoom:50%;">
+
+<hr>
+<h1 id="geometry"><a href="#geometry" class="headerlink" title="geometry"></a>geometry</h1><p>表示当前控件的位置和尺寸：<code>x</code>、<code>y</code>、<code>widget</code>、<code>hight</code></p>
+<blockquote>
+<p>对 于Qt的坐标系,不要忘记是⼀个”左⼿坐标系”.其中坐标系的原点是当前元素的⽗元素的左上⻆</p>
+</blockquote>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li><code>geometry()</code>：获取到控件的位置和尺⼨.返回结果是⼀个<code>QRect</code>,包含了<code>x</code>,<code>y</code>,<code>width</code>,<code>height</code>.其中<code>x</code>,<code>y</code>是左上⻆的坐标.</li>
+<li><code>setGeometry(QRect)</code>、<code>setGeometry(int x, int y, int width, int height)</code>：设置控件的位置和尺⼨.可以直接设置⼀个<code>QRect</code>,也可以分四个属性单独设置.</li>
+</ul>
+<p>注意：<code>move</code>只能修改位置，但是不能修改尺寸</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>通过<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>按钮控制<code>target</code>按钮上下左右移动</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_up_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//获取当前target属性</span><br>    QRect rect = ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">geometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; rect;<br>    ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">setGeometry</span>(rect.<span class="hljs-built_in">x</span>(), rect.<span class="hljs-built_in">y</span>()<span class="hljs-number">-5</span>, rect.<span class="hljs-built_in">width</span>(), rect.<span class="hljs-built_in">height</span>());<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_left_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//获取当前target属性</span><br>    QRect rect = ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">geometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; rect;<br>    ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">setGeometry</span>(rect.<span class="hljs-built_in">x</span>()<span class="hljs-number">-5</span>, rect.<span class="hljs-built_in">y</span>(), rect.<span class="hljs-built_in">width</span>(), rect.<span class="hljs-built_in">height</span>());<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_down_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//获取当前target属性</span><br>    QRect rect = ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">geometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; rect;<br>    ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">setGeometry</span>(rect.<span class="hljs-built_in">x</span>(), rect.<span class="hljs-built_in">y</span>()<span class="hljs-number">+5</span>, rect.<span class="hljs-built_in">width</span>(), rect.<span class="hljs-built_in">height</span>());<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_right_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//获取当前target属性</span><br>    QRect rect = ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">geometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; rect;<br>    ui-&gt;pushButton_target-&gt;<span class="hljs-built_in">setGeometry</span>(rect.<span class="hljs-built_in">x</span>()<span class="hljs-number">+5</span>, rect.<span class="hljs-built_in">y</span>(), rect.<span class="hljs-built_in">width</span>(), rect.<span class="hljs-built_in">height</span>());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/%E5%8A%A8%E7%94%BB.gif" srcset="/GWJ2026/img/loading.gif" lazyload style="zoom:50%;">
+
+<hr>
+<h1 id="windowframe的影响"><a href="#windowframe的影响" class="headerlink" title="windowframe的影响"></a>windowframe的影响</h1><p>如果<code>widget</code>作为⼀个窗⼝(带有标题栏,最⼩化,最⼤化,关闭按钮),那么在计算尺⼨和坐标的 时候就有两种算法.包含<code>windowframe</code>和不包含<code>windowframe</code>.</p>
+<img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/20260104153542732.png" srcset="/GWJ2026/img/loading.gif" lazyload style="zoom:50%;">
+
+<ul>
+<li>其中<code>x(),y(), frameGeometry(), pos(), move()</code> 都是按照包含windowframe的⽅式来计算的</li>
+<li>其中<code>geometry(),width(), height(), rect(), size()</code> 则是按照不包含windowframe的⽅式来计算的.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>x()</code></td>
+<td>获取横坐标（计算时 <strong>包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>y()</code></td>
+<td>获取纵坐标（计算时 <strong>包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>pos()</code></td>
+<td>返回 <code>QPoint</code> 对象，含 <code>x()</code>, <code>y()</code>, <code>setX()</code>, <code>setY()</code> 等方法（计算时 <strong>包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>frameSize()</code></td>
+<td>返回 <code>QSize</code> 对象，含 <code>width()</code>, <code>height()</code>, <code>setWidth()</code>, <code>setHeight()</code> 等方法（计算时 <strong>包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>frameGeometry()</code></td>
+<td>返回 <code>QRect</code> 对象，可获取 <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>（计算时 <strong>包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>width()</code></td>
+<td>获取宽度（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>height()</code></td>
+<td>获取高度（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>size()</code></td>
+<td>返回 <code>QSize</code> 对象，含 <code>width()</code>, <code>height()</code>, <code>setWidth()</code>, <code>setHeight()</code> 等方法（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>rect()</code></td>
+<td>返回 <code>QRect</code> 对象，可获取并设置 <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>geometry()</code></td>
+<td>返回 <code>QRect</code> 对象，可获取 <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+<tr>
+<td><code>setGeometry()</code></td>
+<td>直接设置窗口的位置和尺寸，可传入 <code>x, y, width, height</code> 或 <code>QRect</code> 对象（计算时 <strong>不包含</strong> window frame）</td>
+</tr>
+</tbody></table>
+<h2 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h2><p>写在 Widget 的构造函数里，<strong>此时窗口（Widget）刚刚被 new 出来，还没有被窗口管理器装饰（即还没加上标题栏、边框等 window frame）</strong>。</p>
+<ul>
+<li><code>geometry()</code> —— 返回的是 <strong>客户区</strong> 的几何（不含 window frame）。</li>
+<li><code>frameGeometry()</code> —— 理论上应该返回“客户区 + window frame”的几何，但此刻 frame 尚不存在，所以两者得到的数值<strong>完全一样</strong>。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br>    QRect rect1 = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">geometry</span>();<br>    QRect rect2 = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">frameGeometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; <span class="hljs-string">&quot;geometry:&quot;</span> &lt;&lt; rect1;<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; <span class="hljs-string">&quot;frameGeometry:&quot;</span> &lt;&lt;rect2;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">geometry</span>: QRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span> <span class="hljs-number">800</span>x600)<br><br><span class="hljs-attribute">frameGeometry</span>: QRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span> <span class="hljs-number">800</span>x600)<br></code></pre></td></tr></table></figure>
+
+<p><strong>但是在点击按钮时,打印的<code>geometry</code>和<code>frameGeometry</code>则存在差异：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br>    QPushButton *mybutton = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QPushButton</span>(<span class="hljs-keyword">this</span>);<br>    mybutton-&gt;<span class="hljs-built_in">setText</span>(<span class="hljs-string">&quot;Qrect&quot;</span>);<br>    <span class="hljs-built_in">connect</span>(mybutton, &amp;QPushButton::clicked, <span class="hljs-keyword">this</span>, &amp;Widget::handle);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::handle</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    QRect rect1 = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">geometry</span>();<br>    QRect rect2 = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">frameGeometry</span>();<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; <span class="hljs-string">&quot;geometry:&quot;</span> &lt;&lt; rect1;<br>    <span class="hljs-built_in">qDebug</span>() &lt;&lt; <span class="hljs-string">&quot;frameGeometry:&quot;</span> &lt;&lt;rect2;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">geometry</span>: QRect(<span class="hljs-number">560</span>,<span class="hljs-number">204</span> <span class="hljs-number">800</span>x600)<br><br><span class="hljs-attribute">frameGeometry</span>: QRect(<span class="hljs-number">559</span>,<span class="hljs-number">159</span> <span class="hljs-number">802</span>x646)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="windowTitle"><a href="#windowTitle" class="headerlink" title="windowTitle"></a>windowTitle</h1><ul>
+<li><code>windowTitle()</code>：获取控件的窗口标题。</li>
+<li><code>setWindowTitle(const QString &amp;title)</code>：设置控件的窗口标题。</li>
+</ul>
+<p>如果是顶层widget(独⽴窗⼝),这个操作才会有效，如果是⼦widget,这个操作⽆任何效果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//  设置窗⼝标题  </span><br><span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setWindowTitle</span>(<span class="hljs-string">&quot; 这是标题 &quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="windowIcon"><a href="#windowIcon" class="headerlink" title="windowIcon"></a>windowIcon</h1><ul>
+<li><code>windowIcon()</code>：获取控件的窗口图标，返回 <code>QIcon</code> 对象。</li>
+<li><code>setWindowIcon(const QIcon &amp;icon)</code>：设置控件的窗口图标。</li>
+</ul>
+<p>同windowTitle,上述操作仅针对顶层widget有效。</p>
+<p> QIcon 本身很轻量，只是“图标描述”，真正绘图数据由 Qt 内部缓存；它既不参与对象树，也无法设置父对象。<br>因此：</p>
+<ul>
+<li>只要图标已经通过 <code>setWindowIcon()</code> 设置到控件，QIcon 对象本身随后销毁也不会影响界面显示。</li>
+<li>用栈对象、临时对象或直接写 <code>setWindowIcon(QIcon(&quot;:/res/icon.png&quot;))</code> 都可以，无需刻意 <code>new</code>。</li>
+</ul>
+<h2 id="代码示例-2"><a href="#代码示例-2" class="headerlink" title="代码示例"></a>代码示例</h2><ol>
+<li>设置窗⼝图标–绝对路径</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widget.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;ui_widget.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QIcon&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QDir&gt;</span></span><br>Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br>    <span class="hljs-function">QIcon <span class="hljs-title">icon</span><span class="hljs-params">(<span class="hljs-string">&quot;d:/1.png&quot;</span>)</span></span>;<br>    <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setWindowIcon</span>(icon);<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>实际开发中,我们⼀般不会在代码中通过绝对路径引⼊图⽚.</p>
+<p>因为我们⽆法保证程序发布后,⽤ ⼾的电脑上也有同样的路径. </p>
+<p>如果使⽤相对路径,则需要确保代码中的相对路径写法和图⽚实际所在的路径匹配(⽐如代码 中写作”.&#x2F;image&#x2F;rose.jpg”, 就需要在当前⼯作⽬录中创建image⽬录,并把rose.jpg放进 去).</p>
+<ol start="2">
+<li>使用<code>QRC</code>机制</li>
+</ol>
+<p><code>QRC</code>机制的本质是把图片的二进制数据转成C++代码，最终会在代码中看到一个很大的<code>char</code>数组（在内存中），里面存放的是二进制数据。</p>
+<p>为了在QT代码中能够访问代码，因此QT就自己创建一个虚拟目录。</p>
+<p>注意：在导入图片的时候需要确保导入的图片在<code>resource.qrc</code>文件的同级目录或者同级目录的子目录中。</p>
+<ul>
+<li><p>优点:确保了图⽚,字体,声⾳等资源能够真正做到”<strong>⽬录⽆关</strong>“,⽆论如何都<strong>不会出现资源丢失的情况</strong>。</p>
+</li>
+<li><p>缺点:<strong>不适合管理体积⼤的资源</strong>.如果资源⽐较⼤(⽐如是⼏个MB的⽂件),或者资源特别多, ⽣成的最终的exe体积就会⽐较⼤,程序运⾏消耗的内存也会增⼤,程序编译的时间也会显著 增加。</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widget.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;ui_widget.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QIcon&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QDir&gt;</span></span><br>Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br>    <span class="hljs-function">QIcon <span class="hljs-title">icon</span><span class="hljs-params">(<span class="hljs-string">&quot;:/1.png&quot;</span>)</span></span>;  <span class="hljs-comment">//qrc机制</span><br>    <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setWindowIcon</span>(icon);<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/20260104164655656.png" srcset="/GWJ2026/img/loading.gif" lazyload style="zoom:50%;">
+
+<hr>
+<h1 id="windowOpacity"><a href="#windowOpacity" class="headerlink" title="windowOpacity"></a>windowOpacity</h1><ul>
+<li><code>windowOpacity()</code><br>获取控件的不透明度，返回 <code>float</code>，范围 0.0（全透明）到 1.0（完全不透明）。</li>
+<li><code>setWindowOpacity(float n)</code><br>设置控件的不透明度。</li>
+</ul>
+<h2 id="代码示例-3"><a href="#代码示例-3" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_add_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">float</span> opacity = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">windowOpacity</span>();<br>    <span class="hljs-keyword">if</span>(opacity &gt;= <span class="hljs-number">1.0</span>) <span class="hljs-keyword">return</span>;  <span class="hljs-comment">//这个判定条件不加也可以，超过1.0的数字实际上设不进去</span><br>    <span class="hljs-built_in">qDebug</span>()  &lt;&lt; opacity;<br>    opacity += <span class="hljs-number">0.1</span>;<br>    <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setWindowOpacity</span>(opacity);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Widget::on_pushButton_sub_clicked</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">float</span> opacity = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">windowOpacity</span>();<br>    <span class="hljs-keyword">if</span>(opacity &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-built_in">qDebug</span>()  &lt;&lt; opacity;<br>    opacity -= <span class="hljs-number">0.1</span>;        <span class="hljs-comment">//这个判定条件不加也可以，小于0.0的数字实际上设不进去</span><br>    <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setWindowOpacity</span>(opacity);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意：C++ 的 <code>float</code> 遵循 IEEE 754 标准，运算存在精度误差。<br>因此 <code>1 - 0.1</code> 的结果<strong>并不精确等于 0.9</strong>，可能显示为 <code>0.899 999 976</code>… 左右。<br>对透明度或其他需要精确比较的场景，请避免直接 <code>==</code> 判断，改用区间或误差范围比较。</p>
+<p><strong>因此，在计算浮点数运算时一定要注意：</strong></p>
+<ul>
+<li><p><strong>不准：二进制无法精确表示十进制小数，0.1 存的是“约等于 0.1 的无穷级数截断值”。</strong><br><strong>于是<code>0.1 + 0.2 == 0.3</code> → false，实际得到 0.300 000 000 000 000 04。</strong></p>
+</li>
+<li><p><strong>绝不用 <code>==</code> 直接比较浮点数；</strong></p>
+</li>
+<li><p><strong>用“作差取绝对值 &lt; ε”方式判断相等；</strong></p>
+</li>
+<li><p><strong>涉及钱、税务、报表等“一分不能差”的场景，改用整数分 &#x2F; 定点库 &#x2F; Decimal 类型，彻底避开 float&#x2F;double。</strong></p>
+</li>
+</ul>
+<hr>
+<h1 id="cursor"><a href="#cursor" class="headerlink" title="cursor"></a>cursor</h1><ul>
+<li><code>cursor()</code><br>返回当前 widget 的光标对象（<code>QCursor</code>）。鼠标悬停在该控件上时，会显示此形状。</li>
+<li><code>setCursor(const QCursor &amp;cursor)</code><br>仅对本控件设置光标形状；鼠标离开控件即失效。</li>
+<li><code>QGuiApplication::setOverrideCursor(const QCursor &amp;cursor)</code><br>设置<strong>全局</strong>光标，覆盖所有控件的光标设置；直到调用 <code>restoreOverrideCursor()</code> 才恢复。</li>
+</ul>
+<h2 id="在QtDesigner中设置按钮的光标"><a href="#在QtDesigner中设置按钮的光标" class="headerlink" title="在QtDesigner中设置按钮的光标"></a>在QtDesigner中设置按钮的光标</h2><p><img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/20260104171929839.png" srcset="/GWJ2026/img/loading.gif" lazyload></p>
+<h2 id="过代码设置按钮的光标"><a href="#过代码设置按钮的光标" class="headerlink" title="过代码设置按钮的光标"></a>过代码设置按钮的光标</h2><p>QT中内置的光标形状：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">CursorShape</span> &#123;<br>       ArrowCursor,<br>       UpArrowCursor,<br>       CrossCursor,<br>       WaitCursor,<br>       IBeamCursor,<br>       SizeVerCursor,<br>       SizeHorCursor,<br>       SizeBDiagCursor,<br>       SizeFDiagCursor,<br>       SizeAllCursor,<br>       BlankCursor,<br>       SplitVCursor,<br>       SplitHCursor,<br>       PointingHandCursor,<br>       ForbiddenCursor,<br>       WhatsThisCursor,<br>       BusyCursor,<br>       OpenHandCursor,<br>       ClosedHandCursor,<br>       DragCopyCursor,<br>       DragMoveCursor,<br>       DragLinkCursor,<br>       LastCursor = DragLinkCursor,<br>       BitmapCursor = <span class="hljs-number">24</span>,<br>       CustomCursor = <span class="hljs-number">25</span><br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>代码示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">QCursor cursor =(Qt::CrossCursor);<br>ui-&gt;pushButton_add-&gt;<span class="hljs-built_in">setCursor</span>(cursor);<br>ui-&gt;pushButton_sub-&gt;<span class="hljs-built_in">setCursor</span>(cursor);<br></code></pre></td></tr></table></figure>
+
+<h2 id="自定义鼠标光标"><a href="#自定义鼠标光标" class="headerlink" title="自定义鼠标光标"></a>自定义鼠标光标</h2><p>Qt允许用户自定义的图片来设置鼠标光标</p>
+<ul>
+<li>创建qrc资源⽂件,添加前缀 <code>/ </code>,并加⼊图片</li>
+<li>编写widget.cpp</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br>    <span class="hljs-comment">//创建一个位图对象，加载一个自定义的图片</span><br>    <span class="hljs-function">QPixmap <span class="hljs-title">pixmap</span><span class="hljs-params">(<span class="hljs-string">&quot;:/dog.png&quot;</span>)</span></span>;<br>    <span class="hljs-comment">//缩放图片</span><br>    pixmap = pixmap.<span class="hljs-built_in">scaled</span>(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>);<br>    <span class="hljs-comment">//确定鼠标有效点</span><br>    <span class="hljs-function">QCursor <span class="hljs-title">cursor</span><span class="hljs-params">(pixmap,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)</span></span>;<br>    <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">setCursor</span>(cursor);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="font"><a href="#font" class="headerlink" title="font"></a>font</h1><ul>
+<li><code>font()</code><br>获取当前 widget 的字体信息，返回 <code>QFont</code> 对象。</li>
+<li><code>setFont(const QFont &amp;font)</code><br>设置当前 widget 的字体。</li>
+</ul>
+<h1 id="QFront"><a href="#QFront" class="headerlink" title="QFront"></a>QFront</h1><ul>
+<li><code>family</code><br>字体家族，如“楷体”“宋体”“微软雅黑”。</li>
+<li><code>pointSize</code><br>字体大小（点）。</li>
+<li><code>weight</code><br>粗细数值，范围 0–99，越大越粗。</li>
+<li><code>bold</code><br>是否加粗；<code>true</code> 等价于 <code>weight = 75</code>，<code>false</code> 等价于 <code>50</code>。</li>
+<li><code>italic</code><br>是否倾斜。</li>
+<li><code>underline</code><br>是否带下划线。</li>
+<li><code>strikeOut</code><br>是否带删除线。</li>
+</ul>
+<h2 id="代码示例-4"><a href="#代码示例-4" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br><br>    QLabel *label = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QLabel</span>(<span class="hljs-keyword">this</span>);<br>    label-&gt;<span class="hljs-built_in">setText</span>(<span class="hljs-string">&quot;这是一段文字&quot;</span>);<br>    QFont font;<br>    font.<span class="hljs-built_in">setFamily</span>(<span class="hljs-string">&quot;楷体&quot;</span>);      <span class="hljs-comment">// 字体家族</span><br>    font.<span class="hljs-built_in">setPointSize</span>(<span class="hljs-number">20</span>);       <span class="hljs-comment">// 字号</span><br>    font.<span class="hljs-built_in">setBold</span>(<span class="hljs-literal">true</span>);          <span class="hljs-comment">// 加粗</span><br>    font.<span class="hljs-built_in">setItalic</span>(<span class="hljs-literal">true</span>);        <span class="hljs-comment">// 倾斜</span><br>    font.<span class="hljs-built_in">setUnderline</span>(<span class="hljs-literal">true</span>);     <span class="hljs-comment">// 下划线</span><br>    font.<span class="hljs-built_in">setStrikeOut</span>(<span class="hljs-literal">true</span>);     <span class="hljs-comment">// 删除线</span><br><br>    label-&gt;<span class="hljs-built_in">setFont</span>(font);    <span class="hljs-comment">// 应用到 label</span><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="toolTip"><a href="#toolTip" class="headerlink" title="toolTip"></a>toolTip</h1><p>作用：鼠标悬停在某个控件上时，会显示文本提示这个按键的作用</p>
+<ul>
+<li><code>setToolTip(const QString &amp;text)</code><br>设置鼠标悬停时显示的提示文本。</li>
+<li><code>setToolTipDuration(int msec)</code><br>设置提示文本自动消失的延时，单位毫秒；设为 -1 则使用系统默认时长。</li>
+</ul>
+<h2 id="代码示例-5"><a href="#代码示例-5" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Widget::<span class="hljs-built_in">Widget</span>(QWidget *parent)<br>    : <span class="hljs-built_in">QWidget</span>(parent)<br>    , <span class="hljs-built_in">ui</span>(<span class="hljs-keyword">new</span> Ui::Widget)<br>&#123;<br>    ui-&gt;<span class="hljs-built_in">setupUi</span>(<span class="hljs-keyword">this</span>);<br><br>    ui-&gt;pushButton_add-&gt;<span class="hljs-built_in">setToolTip</span>(<span class="hljs-string">&quot;增加透明度&quot;</span>);<br>    ui-&gt;pushButton_add-&gt;<span class="hljs-built_in">setToolTipDuration</span>(<span class="hljs-number">3000</span>);<br>    ui-&gt;pushButton_sub-&gt;<span class="hljs-built_in">setToolTip</span>(<span class="hljs-string">&quot;降低透明度&quot;</span>);<br>    ui-&gt;pushButton_sub-&gt;<span class="hljs-built_in">setToolTipDuration</span>(<span class="hljs-number">3000</span>);<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="focusPolicy"><a href="#focusPolicy" class="headerlink" title="focusPolicy"></a>focusPolicy</h1><p>焦点 &#x3D; 选中状态。<br>只有获得焦点的控件才能接收键盘、快捷键等后续操作，就像即时战略里先点选单位再下指令。<br>通过 <code>setFocusPolicy()</code> 可决定控件能否被鼠标点击或 Tab 键选中，对输入框、单选框、复选框等尤其重要。</p>
+<ul>
+<li><code>focusPolicy()</code><br>返回当前控件的焦点策略，类型为 <code>Qt::FocusPolicy</code>。</li>
+<li><code>setFocusPolicy(Qt::FocusPolicy policy)</code><br>设置控件如何获得焦点。可取值：<ul>
+<li><code>Qt::NoFocus</code> —— 无法通过任何方式获得焦点。</li>
+<li><code>Qt::TabFocus</code> —— 仅 <strong>Tab 键</strong> 可聚焦。</li>
+<li><code>Qt::ClickFocus</code> —— 仅 <strong>鼠标点击</strong> 可聚焦。</li>
+<li><code>Qt::StrongFocus</code> —— <strong>Tab 键 + 鼠标点击</strong> 均可聚焦（默认）。</li>
+<li><code>Qt::WheelFocus</code> —— 同 <code>StrongFocus</code>，额外支持 <strong>滚轮聚焦</strong>（极少用）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/20260106171922284.png" srcset="/GWJ2026/img/loading.gif" lazyload></p>
+<h1 id="styleSheet"><a href="#styleSheet" class="headerlink" title="styleSheet"></a>styleSheet</h1><p>Qt 借用了网页的 CSS 概念，把子集叫做 <strong>QSS（Qt Style Sheets）</strong>。<br>用一串类似网页的样式字符串就能一次性描述控件的大小、位置、颜色、字体、边框、背景等，无需逐条调 API。<br>完整支持列表见官方文档「Qt Style Sheets Reference」。</p>
+
                 
               </div>
             
@@ -355,6 +568,8 @@
       
         <a href="/GWJ2026/tags/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/" class="print-no-link">#常用控件</a>
       
+        <a href="/GWJ2026/tags/QWidget/" class="print-no-link">#QWidget</a>
+      
     </div>
   
 </div>
@@ -365,7 +580,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>QT常用控件</div>
+      <div>QT常用控件--QWidget</div>
       <div>https://wigginsgao.github.io/GWJ2026/2026/01/03/QT控件/</div>
     </div>
     <div class="license-meta">

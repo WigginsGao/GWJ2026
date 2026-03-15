@@ -771,7 +771,7 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/GWJ2026/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -811,7 +811,7 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/GWJ2026/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -826,6 +826,188 @@ mjx-container[display="true"] + br {
 			<div class="main-content">
 				<div class="home-content-container">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                
+                    
+                
+
+                
+                    <div id="home-article-thumbnail" class="home-article-thumbnail relative h-[150px] overflow-hidden rounded-t-large">
+                        <a href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/">
+                            <img src="/GWJ2026/img/3.jpg" alt="1021 Deepest Root" class="w-full h-full object-cover dark:brightness-75 transition-all" />
+                        </a>
+                    </div>
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-5">
+                    <h3 class="home-article-title">
+                        <a href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/">
+                            1021 Deepest Root
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            原题链接
+
+首先需要判断连通分量，即判断有环无环，用并查集的速度是最快的
+并查集：
+初始化：p[i]=i，每个节点是自己的老大；
+找根：find(x)，递归找老大 + 路径压缩；
+合并：不同老大才合并，连通块数减一；
+判连通：看最终连通块数是否为 1。
+
+
+
+
+
+123456789101112int find(int x){	return (x == p[x]) ? x : p[x] = f...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Mar 15 2026 16:34:20 GMT+0800">
+                
+                    2026-03-15
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/GWJ2026/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">算法练习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/GWJ2026/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/GWJ2026/tags/PAT/">PAT</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/">阅读全文<span class="seo-reader-text">1021 Deepest Root</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+                    
+                
+
+                
+                    <div id="home-article-thumbnail" class="home-article-thumbnail relative h-[150px] overflow-hidden rounded-t-large">
+                        <a href="/GWJ2026/2026/03/15/1020%20Tree%20Traversals/">
+                            <img src="/GWJ2026/img/3.jpg" alt="1020 Tree Traversals" class="w-full h-full object-cover dark:brightness-75 transition-all" />
+                        </a>
+                    </div>
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-5">
+                    <h3 class="home-article-title">
+                        <a href="/GWJ2026/2026/03/15/1020%20Tree%20Traversals/">
+                            1020 Tree Traversals
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            原题链接
+一个二叉树，树中每个节点的权值互不相同。
+现在给出它的后序遍历和中序遍历，请你输出它的层序遍历。
+输入格式第一行包含整数 N，表示二叉树的节点数。
+第二行包含 N 个整数，表示二叉树的后序遍历。
+第三行包含 N 个整数，表示二叉树的中序遍历。
+输出格式输出一行 N 个整数，表示二叉树的层序遍历。
+数据范围1≤N≤30,官方并未给出各节点权值的取值范围，为方便起见，在本网站范围取为 ...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Mar 15 2026 15:14:47 GMT+0800">
+                
+                    2026-03-15
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/GWJ2026/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">算法练习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/GWJ2026/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/GWJ2026/tags/PAT/">PAT</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/GWJ2026/2026/03/15/1020%20Tree%20Traversals/">阅读全文<span class="seo-reader-text">1020 Tree Traversals</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
         
             <li class="home-article-item">
 
@@ -1593,220 +1775,11 @@ QLabel 内部包...
                 </div>
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-
-                
-                    <div id="home-article-thumbnail" class="home-article-thumbnail relative h-[150px] overflow-hidden rounded-t-large">
-                        <a href="/GWJ2026/2026/01/06/QT%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6/">
-                            <img src="/GWJ2026/img/4.png" alt="QT常用控件--按钮 类控件" class="w-full h-full object-cover dark:brightness-75 transition-all" />
-                        </a>
-                    </div>
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-5">
-                    <h3 class="home-article-title">
-                        <a href="/GWJ2026/2026/01/06/QT%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6/">
-                            QT常用控件--按钮 类控件
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            代码仓库
-QPushButton继承自 QAbstractButton。这个类是一个抽象类，是其他按钮的父类。
-
-QPushButton  
-QCheckBox  
-QWidget  
-QAbstractButton  
-QRadioButton  
-QToolButton
-
-
-QAbstractButton 作为 QWidget 的子类，当然也继承了 QWidget 的属性。  
-
-Qt ...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Jan 06 2026 22:18:57 GMT+0800">
-                
-                    2026-01-06
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/GWJ2026/categories/QT%E5%AD%A6%E4%B9%A0/">QT学习</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/GWJ2026/tags/Qt/">Qt</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/GWJ2026/tags/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/">常用控件</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/GWJ2026/tags/%E6%8C%89%E9%92%AE/">按钮</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/GWJ2026/2026/01/06/QT%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6/">阅读全文<span class="seo-reader-text">QT常用控件--按钮 类控件</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-
-                
-                    <div id="home-article-thumbnail" class="home-article-thumbnail relative h-[150px] overflow-hidden rounded-t-large">
-                        <a href="/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/">
-                            <img src="/GWJ2026/img/4.png" alt="QT常用控件--QWidget" class="w-full h-full object-cover dark:brightness-75 transition-all" />
-                        </a>
-                    </div>
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-5">
-                    <h3 class="home-article-title">
-                        <a href="/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/">
-                            QT常用控件--QWidget
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            代码仓库
-
-QWidget的enable属性
-
-
-API
-说明
-
-
-
-isEnabled()
-获取到控件的可⽤状态.
-
-
-setEnabled
-设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤.
-
-
-
-
-所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的.
-如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤.
-
-
-代码创建一个按钮被禁用123...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Jan 03 2026 16:26:17 GMT+0800">
-                
-                    2026-01-03
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/GWJ2026/categories/QT%E5%AD%A6%E4%B9%A0/">QT学习</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/GWJ2026/tags/Qt/">Qt</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/GWJ2026/tags/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/">常用控件</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/GWJ2026/tags/QWidget/">QWidget</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/">阅读全文<span class="seo-reader-text">QT常用控件--QWidget</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
     </ul>
 
     <div class="home-paginator px-7 py-5">
         <div class="paginator">
-	<span class="page-number current">1</span>
+	<span class="page-number current">1</span><a class="page-number" href="/GWJ2026/page/2/">2</a><a class="extend next" rel="next" href="/GWJ2026/page/2/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
   
     </div>
@@ -1832,7 +1805,7 @@ setEnabled
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 10 篇文章
+                        共撰写了 12 篇文章
                     </span>
                     
                 </p>

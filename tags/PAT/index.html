@@ -1,915 +1,767 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Hexo Theme Redefine">
-    
-    <meta name="author" content="wenjun Gao">
-    
-    <!-- Completely eliminate flash of wrong theme -->
-    <script>
-        (function() {
-            const THEME_KEY = "REDEFINE-THEME-STATUS";
-            const DARK = "dark", LIGHT = "light";
-            
-            // Get preferred theme
-            function getTheme() {
-                try {
-                    const saved = localStorage.getItem(THEME_KEY);
-                    if (saved) {
-                        const { isDark } = JSON.parse(saved);
-                        return isDark ? DARK : LIGHT;
-                    }
-                } catch (e) {}
-                
-                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
-            }
-            
-            // Apply theme to document
-            function applyTheme(theme) {
-                const isDark = theme === DARK;
-                const root = document.documentElement;
-                
-                // Set classes for compatibility
-                root.classList.add(theme);
-                root.classList.remove(isDark ? LIGHT : DARK);
-                root.style.colorScheme = theme;
-            }
-            
-            // Initial application
-            const theme = getTheme();
-            applyTheme(theme);
-            
-            // Listen for system preference changes
-            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-                // Only update if using system preference (no localStorage entry)
-                if (!localStorage.getItem(THEME_KEY)) {
-                    applyTheme(matches ? DARK : LIGHT);
-                }
-            });
-            
-            // Set body classes ASAP (before DOMContentLoaded)
-            (function() {
-                const addBodyClass = () => {
-                    const b = document.body;
-                    if (!b) return false;
-                    b.classList.add(theme + "-mode");
-                    return true;
-                };
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+<title>南桥几晴秋</title>
 
-                // Try immediately
-                if (addBodyClass()) return;
-
-                // Observe until body exists
-                const mo = new MutationObserver(() => {
-                    if (addBodyClass()) mo.disconnect();
-                });
-                mo.observe(document.documentElement, { childList: true, subtree: true });
-            })();
-        })();
-    </script>
-    
-    <!-- preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    
-    <!--- Seo Part-->
-    
-    <link rel="canonical" href="https://wigginsgao.github.io/GWJ2026/tags/pat/"/>
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="revisit-after" content="1 days">
-    
-    
-    
-        
-        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="南桥几晴秋">
-<meta property="og:url" content="https://wigginsgao.github.io/GWJ2026/tags/PAT/index.html">
-<meta property="og:site_name" content="南桥几晴秋">
-<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wigginsgao.github.io/images/redefine-og.webp">
-<meta property="article:author" content="Wenjun Gao">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wigginsgao.github.io/images/redefine-og.webp">
-    
-    
-    <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/3博客.png" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/3博客.png">
-    <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/3博客.png">
-    <!--- Page Info-->
-    
-    <title>
-        
-            标签: PAT | 南桥几晴秋
-        
-    </title>
-
-    
-<link rel="stylesheet" href="/GWJ2026/fonts/Chillax/chillax.css">
+  <meta name="description" content="既然选择了远方，便只顾风雨兼程.">
 
 
-    <!--- Inject Part-->
-    
+<script>
+  (function () {
+    var accents = { green: 1, pink: 1, blue: 1, orange: 1, sakura: 1 };
+    var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
+    var accent = match ? decodeURIComponent(match[1]) : 'blue';
+    if (!accents[accent]) accent = 'blue';
+    document.documentElement.setAttribute('data-accent', accent);
+    try {
+      if (localStorage.getItem('flatpaper-mode') === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch (e) {}
+  })();
+</script>
 
-    
 <link rel="stylesheet" href="/GWJ2026/css/style.css">
 
 
-    
-        
-<link rel="stylesheet" href="/GWJ2026/css/build/tailwind.css">
+  
 
-    
+  
 
-    
-<link rel="stylesheet" href="/GWJ2026/fonts/GeistMono/geist-mono.css">
+  
 
-    
-<link rel="stylesheet" href="/GWJ2026/fonts/Geist/geist.css">
+  
 
-    <!--- Font Part-->
-    
-    
-    
-    
-    
-    
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/GWJ2026/atom.xml" title="南桥几晴秋" type="application/atom+xml">
+</head>
 
-    <script id="hexo-configurations">
-    window.config = {"hostname":"wigginsgao.github.io","root":"/GWJ2026/","language":"zh-CN","path":"search.json"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"南桥几晴秋","subtitle":{"text":["Make hey while the sun's shining."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Status":{"icon":"fa-regular fa-chart-bar","path":"https://status.ohevan.com/"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/WigginsGao","Gitee":"https://gitee.com/gwj-xiao-bai","CSDN":"https://blog.csdn.net/weixin_73397765?spm=1000.2115.3001.5343"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2026/1/20 22:00:00"};
-    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
-    window.data = {"masonry":false};
-  </script>
+<body
+  class="is-list tag-style-tape"
+  data-default-accent="blue"
+  data-code-theme="dark"
+  data-note-style="flat"
+  data-note-icons="on"
+>
+  <div class="page-grain"></div>
+  <header class="site-header">
+  
+  <button class="icon-button js-sidebar-toggle sidebar-toggle" type="button" aria-label="打开侧边栏" aria-controls="paper-sidebar-drawer" aria-expanded="false">
     
-    <!--- Fontawesome Part-->
-    
-<link rel="stylesheet" href="/GWJ2026/fontawesome/fontawesome.min.css">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
 
-    
-<link rel="stylesheet" href="/GWJ2026/fontawesome/brands.min.css">
+  </button>
 
-    
-<link rel="stylesheet" href="/GWJ2026/fontawesome/solid.min.css">
+  <div class="brand">
+    <div class="brand-mark-wrapper">
+      
+        <button class="brand-mark" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="brand-nav-menu">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
 
-    
-<link rel="stylesheet" href="/GWJ2026/fontawesome/regular.min.css">
-
-    
-    
-    
-    
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-
-<body>
-	<div class="progress-bar-container">
-	
-
-	
-	<span class="pjax-progress-bar"></span>
-	<!--        <span class="swup-progress-icon">-->
-	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
-	<!--        </span>-->
-	
-</div>
-
-<main class="page-container" id="swup">
-
-	
-
-	<div class="main-content-container flex flex-col justify-between min-h-dvh">
-		<div class="main-content-header">
-			<header class="navbar-container px-6 md:px-12">
-    <div class="navbar-content transition-navbar ">
-        <div class="left">
-            
-                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/GWJ2026/">
-                    <img src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/3%E5%8D%9A%E5%AE%A2.png" class="w-full h-full rounded-xs">
+        </button>
+        <div class="brand-nav-menu" id="brand-nav-menu" role="menu">
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Project</div>
+              
+                <a role="menuitem" href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://tools.ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>简易工具</span>
                 </a>
-            
-            <a class="logo-title" href="/GWJ2026/">
-                
-                南桥几晴秋
-                
-            </a>
-        </div>
-
-        <div class="right">
-            <!-- PC -->
-            <div class="desktop">
-                <ul class="navbar-list">
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/GWJ2026/"
-                                        >
-                                    <i class="fa-regular fa-house fa-fw"></i>
-                                    首页
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/GWJ2026/categories/"
-                                        >
-                                    <i class="fa-solid fa-folder fa-fw"></i>
-                                    分类
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class="active"
-                                   href="/GWJ2026/tags/"
-                                        >
-                                    <i class="fa-solid fa-tags fa-fw"></i>
-                                    标签
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/GWJ2026/archives"
-                                        >
-                                    <i class="fa-regular fa-archive fa-fw"></i>
-                                    归档
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   target="_blank" rel="noopener" href="https://status.ohevan.com/"
-                                        >
-                                    <i class="fa-regular fa-chart-bar fa-fw"></i>
-                                    状态
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown"
-                                   href="#"
-                                        onClick=&#34;return false;&#34;>
-                                    <i class="fa-regular fa-user fa-fw"></i>
-                                    关于
-                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                        
-                                            <li>
-                                                <a href="/GWJ2026/about">
-                                                    ME
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a target="_blank" rel="noopener" href="https://github.com/WigginsGao">
-                                                    GITHUB
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a target="_blank" rel="noopener" href="https://gitee.com/gwj-xiao-bai">
-                                                    GITEE
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_73397765?spm=1000.2115.3001.5343">
-                                                    CSDN
-                                                </a>
-                                            </li>
-                                        
-                                    </ul>
-                                
-                            </li>
-                    
-                    
-                        <li class="navbar-item search search-popup-trigger">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                    
-                </ul>
+              
             </div>
-            <!-- Mobile -->
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                
-                <div class="icon-item navbar-bar">
-                    <div class="navbar-bar-middle"></div>
-                </div>
-            </div>
+          
         </div>
+      
     </div>
+    <a class="brand-text" href="/GWJ2026/">南桥几晴秋</a>
+  </div>
 
-    <!-- Mobile sheet -->
-    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
-        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+  <nav class="site-nav" aria-label="Primary navigation">
+    
+      
+        <a class="site-nav-link " href="/GWJ2026/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+          <span>首页</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/GWJ2026/about/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
+          <span>关于</span>
+        </a>
+      
+    
+      
+        <div class="site-nav-item has-children active">
+          <button class="site-nav-link site-nav-parent" type="button" aria-haspopup="true" aria-expanded="false">
             
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>文章</span>
+          </button>
+          <div class="site-nav-menu" role="menu">
+            
+              <a role="menuitem" class="" href="/GWJ2026/categories/">
                 
-                    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
 
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/GWJ2026/"
-                        >
-                            <span>
-                                首页
-                            </span>
-                            
-                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
+                <span>分类</span>
+              </a>
             
+              <a role="menuitem" class="active" href="/GWJ2026/tags/">
                 
-                    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
 
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/GWJ2026/categories/"
-                        >
-                            <span>
-                                分类
-                            </span>
-                            
-                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
+                <span>标签</span>
+              </a>
             
+              <a role="menuitem" class="" href="/GWJ2026/archives/">
                 
-                    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
 
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
-                           href="/GWJ2026/tags/"
-                        >
-                            <span>
-                                标签
-                            </span>
-                            
-                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
+                <span>归档</span>
+              </a>
             
-                
-                    
+          </div>
+        </div>
+      
+    
+  </nav>
 
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/GWJ2026/archives"
-                        >
-                            <span>
-                                归档
-                            </span>
-                            
-                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
+  <div class="header-tools">
+    <button class="icon-button js-search-open" type="button" aria-label="搜索文章">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
 
-                        
-                    </li>
-            
-                
-                    
+    </button>
+    <div class="accent-picker">
+      <button class="icon-button accent-toggle" type="button" aria-label="选择主题色" title="选择主题色" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 5.9 2 10.8c0 3.3 2.7 6 6 6h1.2c.8 0 1.4.6 1.4 1.4 0 .4-.2.8-.2 1.2 0 .8.6 1.6 1.6 1.6 5.5 0 10-4.2 10-9.4C22 6.3 17.5 2 12 2Z"/></svg>
 
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           target="_blank" rel="noopener" href="https://status.ohevan.com/"
-                        >
-                            <span>
-                                状态
-                            </span>
-                            
-                                <i class="fa-regular fa-chart-bar fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
-            
-                
-                    
-
-                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
-                        
-                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                             navbar-data-toggle="submenu-About"
-                        >
-                            <span>
-                                关于
-                            </span>
-                            
-                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
-                            
-                        </div>
-                        
-
-                        
-                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/GWJ2026/about">ME</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           target="_blank" rel="noopener" href="https://github.com/WigginsGao">GITHUB</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           target="_blank" rel="noopener" href="https://gitee.com/gwj-xiao-bai">GITEE</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_73397765?spm=1000.2115.3001.5343">CSDN</a>
-                                    </div>
-                                
-                            </div>
-                        
-                    </li>
-            
-
-            
-            
-        </ul>
-
-        <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/GWJ2026/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
-        <div class="label text-third-text-color text-sm">标签</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/GWJ2026/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
-        <div class="label text-third-text-color text-sm">分类</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/GWJ2026/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
-        <div class="label text-third-text-color text-sm">文章</div>
-    </a>
-</div>
+      </button>
+      <div class="accent-menu" id="accent-menu" role="menu" aria-label="主题色">
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="绿色" aria-checked="false" data-accent-option="green">
+          <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="粉色" aria-checked="false" data-accent-option="pink">
+          <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="樱花粉" aria-checked="false" data-accent-option="sakura">
+          <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="蓝色" aria-checked="false" data-accent-option="blue">
+          <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="橙色" aria-checked="false" data-accent-option="orange">
+          <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
-
-    <div class="window-mask"></div>
-
+    <button class="theme-toggle" type="button" aria-label="切换颜色模式">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</span>
+    </button>
+  </div>
 </header>
 
 
-		</div>
-
-		<div class="main-content-body transition-fade-up">
-			
-
-			<div class="main-content">
-				<div class="page-template-container">
-	
-
-	
-	<div class="tag-name">
-    <i class="fa-solid fa-tag"></i>&nbsp;PAT
-</div>
-<div class="tag-post-list">
-    
-<div class="archive-list-container">
-    
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2026</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">6</span>
-            </div>
-            
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
-                
-                    
-                    
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-26'>
-                    
-                    <a href="/GWJ2026/2026/03/26/PAT%E7%94%B2%E7%BA%A7_%E5%9B%BE/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">PAT甲级_图</span>
-                    </a>
-                    
-                
-                    
-                    
-                    <a href="/GWJ2026/2026/03/26/PAT_%E6%A0%91/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">PAT甲级_树</span>
-                    </a>
-                    
-                
-                    
-                    
-                        
-                            </li>
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-15'>
-                    
-                    <a href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">1021 Deepest Root</span>
-                    </a>
-                    
-                
-                    
-                    
-                    <a href="/GWJ2026/2026/03/15/1020%20Tree%20Traversals/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">1020 Tree Traversals</span>
-                    </a>
-                    
-                
-                    
-                    
-                        
-                            </li>
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-14'>
-                    
-                    <a href="/GWJ2026/2026/03/14/1004%20_Counting_Leaves/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">1004 Counting Leaves</span>
-                    </a>
-                    
-                
-                    
-                    
-                        
-                            </li>
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='01-10'>
-                    
-                    <a href="/GWJ2026/2026/01/10/PAT%E4%B9%99%E7%BA%A7/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">PAT乙级解析</span>
-                    </a>
-                    
-                
-                </li> <!-- Ensure the last item is properly closed -->
-            </ul>
-        </section>
-    
-</div>
-</div>
-	
-
-	<div class="page-template-content markdown-body">
-		
-
-		
-	</div>
-
-	<div class="page-template-comments">
-		
-	</div>
-</div>
-
-<div class="paginator">
-	<span class="page-number current">1</span>
-</div>
   
-			</div>
+  <main class="paper-shell ">
+    
 
-			
-		</div>
+<aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="侧边栏">
+  <button class="icon-button drawer-close js-sidebar-close" type="button" aria-label="关闭侧边栏">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
 
-		<div class="main-content-footer">
-			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
-    <div class="info-container py-3 text-center">
+  </button>
+
+  <section class="side-card nav-card">
+    <nav class="site-nav-drawer" aria-label="移动端导航">
+      
         
-        <div class="text-center">
-            &copy;
+          <a class="" href="/GWJ2026/">
             
-              <span>2026</span>
-              -
-            
-            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/GWJ2026/">wenjun Gao</a>
-            
-                
-                <p class="post-count space-x-0.5">
-                    <span>
-                        共撰写了 15 篇文章
-                    </span>
-                    
-                </p>
-            
-        </div>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+            <span>首页</span>
+          </a>
         
-            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
-            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
-                
-                    <span id="busuanzi_container_site_uv" class="lg:!block">
-                        <span class="text-sm">访问人数</span>
-                        <span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv" class="lg:!block">
-                        <span class="text-sm">总访问量</span>
-                        <span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
+      
+        
+          <a class="" href="/GWJ2026/about/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
+            <span>关于</span>
+          </a>
+        
+      
+        
+          <div class="drawer-nav-group is-open active">
+            <button class="drawer-nav-parent" type="button" aria-expanded="true">
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+              <span>文章</span>
+            </button>
+            <div class="drawer-nav-children">
+              
+                <a class="" href="/GWJ2026/categories/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                  <span>分类</span>
+                </a>
+              
+                <a class="active" href="/GWJ2026/tags/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                  <span>标签</span>
+                </a>
+              
+                <a class="" href="/GWJ2026/archives/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                  <span>归档</span>
+                </a>
+              
             </div>
+          </div>
         
-        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
-            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
-        </div>
+      
+    </nav>
+  </section>
+
+  <section class="side-card profile-card">
+    
+      <div class="avatar avatar--image">
+        <img src="/GWJ2026/img/touxiang.jpg" alt="Wenjun Gao" loading="lazy" referrerpolicy="no-referrer">
+      </div>
+    
+    <h3>Wenjun Gao</h3>
+    <p class="profile-role">日常记录</p>
+    <p>既然选择了远方，便只顾风雨兼程</p>
+    
+      <div class="site-info" aria-label="站点信息">
+        
+          
+            <a class="site-info__item" href="/GWJ2026/archives/">
+              <strong>16</strong>
+              <span>文章</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/GWJ2026/categories/">
+              <strong>6</strong>
+              <span>分类</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/GWJ2026/tags/">
+              <strong>16</strong>
+              <span>标签</span>
+            </a>
+          
+        
+      </div>
+    
+    <div class="socials">
+      
+        <a href="https://github.com/WigginsGao" target="_blank" rel="noopener" aria-label="GitHub">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+
+          
+        </a>
+      
+        <a href="https://space.bilibili.com/543837155?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" aria-label="Bilibili">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-bilibili" aria-hidden="true"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.787 1.894v7.52c.018.748.28 1.38.787 1.887.507.506 1.134.769 1.88.787h13.334c.746-.018 1.373-.28 1.88-.787.506-.507.769-1.13.787-1.887v-7.52c-.018-.747-.28-1.378-.787-1.894-.507-.515-1.134-.773-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.387-.947.258-.257.574-.386.946-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+
+          
+        </a>
+      
+      
+    </div>
+  </section>
+
+  
+    <section class="side-card categories-card">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+分类</h2>
+      
+        <a href="/GWJ2026/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">
+          <span class="dot dot-0"></span>
+          <strong>算法练习</strong>
+          <em>7</em>
+        </a>
+      
+        <a href="/GWJ2026/categories/QT%E5%AD%A6%E4%B9%A0/">
+          <span class="dot dot-1"></span>
+          <strong>QT学习</strong>
+          <em>3</em>
+        </a>
+      
+        <a href="/GWJ2026/categories/Qt/">
+          <span class="dot dot-2"></span>
+          <strong>Qt</strong>
+          <em>2</em>
+        </a>
+      
+        <a href="/GWJ2026/categories/%E6%9D%82%E8%AE%B0/">
+          <span class="dot dot-3"></span>
+          <strong>杂记</strong>
+          <em>1</em>
+        </a>
+      
+        <a href="/GWJ2026/categories/%E9%9D%A2%E8%AF%95%E8%80%83%E7%82%B9/">
+          <span class="dot dot-0"></span>
+          <strong>面试考点</strong>
+          <em>1</em>
+        </a>
+      
+        <a href="/GWJ2026/categories/spdlog/">
+          <span class="dot dot-1"></span>
+          <strong>spdlog</strong>
+          <em>1</em>
+        </a>
+      
+    </section>
+
+    <section class="side-card tag-card">
+      <header class="tag-card__head">
+        <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+热门标签</h2>
+        <a class="tag-card__more" href="/GWJ2026/tags/">
+          <span>查看全部</span>
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+        </a>
+      </header>
+      <div class="tag-cloud">
         
         
-            <div>
-                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
-            </div>
+          <a class="tag-chip tag-chip-0" href="/GWJ2026/tags/%E7%AE%97%E6%B3%95/">算法</a>
         
+          <a class="tag-chip tag-chip-1" href="/GWJ2026/tags/PAT/">PAT</a>
         
-            <script data-swup-reload-script>
-                try {
-                    function odometer_init() {
-                    const elements = document.querySelectorAll('.odometer');
-                    elements.forEach(el => {
-                        new Odometer({
-                            el,
-                            format: '( ddd).dd',
-                            duration: 200
-                        });
-                    });
-                    }
-                    odometer_init();
-                } catch (error) {}
-            </script>
+          <a class="tag-chip tag-chip-2" href="/GWJ2026/tags/Qt/">Qt</a>
         
+          <a class="tag-chip tag-chip-3" href="/GWJ2026/tags/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/">常用控件</a>
         
+          <a class="tag-chip tag-chip-4" href="/GWJ2026/tags/Bug/">Bug</a>
         
-    </div>  
+          <a class="tag-chip tag-chip-5" href="/GWJ2026/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">解决方案</a>
+        
+          <a class="tag-chip tag-chip-0" href="/GWJ2026/tags/QWidget/">QWidget</a>
+        
+          <a class="tag-chip tag-chip-1" href="/GWJ2026/tags/%E6%8C%89%E9%92%AE/">按钮</a>
+        
+          <a class="tag-chip tag-chip-2" href="/GWJ2026/tags/%E6%98%BE%E7%A4%BA/">显示</a>
+        
+          <a class="tag-chip tag-chip-3" href="/GWJ2026/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
+        
+          <a class="tag-chip tag-chip-4" href="/GWJ2026/tags/%E8%AF%B4%E8%AF%B4/">说说</a>
+        
+          <a class="tag-chip tag-chip-5" href="/GWJ2026/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+        
+      </div>
+    </section>
+  
+
+  
+
+</aside>
+
+    <section class="paper-main">
+      
+<section class="archive-paper">
+  <h1>PAT</h1>
+  <div class="archive-list">
+    
+      <a class="archive-item" href="/GWJ2026/2026/03/26/PAT%E7%94%B2%E7%BA%A7_%E5%9B%BE/">
+        <span>2026-03-26</span>
+        <strong>PAT甲级_图</strong>
+        <em></em>
+      </a>
+    
+      <a class="archive-item" href="/GWJ2026/2026/03/26/PAT_%E6%A0%91/">
+        <span>2026-03-26</span>
+        <strong>PAT甲级_树</strong>
+        <em></em>
+      </a>
+    
+      <a class="archive-item" href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/">
+        <span>2026-03-15</span>
+        <strong>1021 Deepest Root</strong>
+        <em></em>
+      </a>
+    
+      <a class="archive-item" href="/GWJ2026/2026/03/15/1020%20Tree%20Traversals/">
+        <span>2026-03-15</span>
+        <strong>1020 Tree Traversals</strong>
+        <em></em>
+      </a>
+    
+      <a class="archive-item" href="/GWJ2026/2026/03/14/1004%20_Counting_Leaves/">
+        <span>2026-03-14</span>
+        <strong>1004 Counting Leaves</strong>
+        <em></em>
+      </a>
+    
+      <a class="archive-item" href="/GWJ2026/2026/01/10/PAT%E4%B9%99%E7%BA%A7/">
+        <span>2026-01-10</span>
+        <strong>PAT乙级解析</strong>
+        <em></em>
+      </a>
+    
+  </div>
+</section>
+
+
+
+
+      
+
+
+    </section>
+    
+      <aside class="paper-sidebar paper-sidebar--left">
+  
+  
+
+  <section class="side-card recent-card" data-random-posts-limit="5">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shuffle" aria-hidden="true"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.6-8.6C14.1 6.6 15.2 6 16.6 6H22"/><path d="M2 6h1.9c.9 0 1.8.4 2.4 1.1l1.4 1.8"/><path d="M22 18h-5.4c-1.3 0-2.5-.6-3.3-1.7l-.5-.7"/></svg>
+随机文章</h2>
+    <ul class="recent-list js-random-posts">
+      
+        <li>
+          <a class="recent-item" href="/GWJ2026/2026/05/26/Archives/">
+            <strong>Archives</strong>
+            <em>2026-05-26</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/GWJ2026/2026/03/26/PAT%E7%94%B2%E7%BA%A7_%E5%9B%BE/">
+            <strong>PAT甲级_图</strong>
+            <em>2026-03-26</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/GWJ2026/2026/03/26/PAT_%E6%A0%91/">
+            <strong>PAT甲级_树</strong>
+            <em>2026-03-26</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/GWJ2026/2026/03/16/%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%99%A4%E6%B3%95(%E5%A4%A7%E6%95%B0%E9%99%A4%E5%B0%8F%E6%95%B0)/">
+            <strong>高精度除法--大数除小数</strong>
+            <em>2026-03-16</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/GWJ2026/2026/03/15/1021%20Deepest%20Root/">
+            <strong>1021 Deepest Root</strong>
+            <em>2026-03-15</em>
+          </a>
+        </li>
+      
+    </ul>
+    <script type="application/json" class="js-random-posts-data">
+    [
+    
+      {
+        "title": "Archives",
+        "url": "/GWJ2026/2026/05/26/Archives/",
+        "date": "2026-05-26"
+      },
+    
+      {
+        "title": "PAT甲级_图",
+        "url": "/GWJ2026/2026/03/26/PAT%E7%94%B2%E7%BA%A7_%E5%9B%BE/",
+        "date": "2026-03-26"
+      },
+    
+      {
+        "title": "PAT甲级_树",
+        "url": "/GWJ2026/2026/03/26/PAT_%E6%A0%91/",
+        "date": "2026-03-26"
+      },
+    
+      {
+        "title": "高精度除法--大数除小数",
+        "url": "/GWJ2026/2026/03/16/%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%99%A4%E6%B3%95(%E5%A4%A7%E6%95%B0%E9%99%A4%E5%B0%8F%E6%95%B0)/",
+        "date": "2026-03-16"
+      },
+    
+      {
+        "title": "1021 Deepest Root",
+        "url": "/GWJ2026/2026/03/15/1021%20Deepest%20Root/",
+        "date": "2026-03-15"
+      },
+    
+      {
+        "title": "1020 Tree Traversals",
+        "url": "/GWJ2026/2026/03/15/1020%20Tree%20Traversals/",
+        "date": "2026-03-15"
+      },
+    
+      {
+        "title": "1004 Counting Leaves",
+        "url": "/GWJ2026/2026/03/14/1004%20_Counting_Leaves/",
+        "date": "2026-03-14"
+      },
+    
+      {
+        "title": "Qt 框架下解决按钮点击误触发窗口拖拽的问题",
+        "url": "/GWJ2026/2026/02/26/Qt%20%E6%A1%86%E6%9E%B6%E4%B8%8B%E8%A7%A3%E5%86%B3%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E8%AF%AF%E8%A7%A6%E5%8F%91%E7%AA%97%E5%8F%A3%E6%8B%96%E6%8B%BD%E7%9A%84%E9%97%AE%E9%A2%98/",
+        "date": "2026-02-26"
+      },
+    
+      {
+        "title": "Qt 动画与阴影效果冲突导致界面显示异常",
+        "url": "/GWJ2026/2026/02/09/Qt%20%E5%8A%A8%E7%94%BB%E4%B8%8E%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C%E5%86%B2%E7%AA%81%E5%AF%BC%E8%87%B4%E7%95%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/",
+        "date": "2026-02-09"
+      },
+    
+      {
+        "title": "面试考点C++（更新中）",
+        "url": "/GWJ2026/2026/01/25/%E9%9D%A2%E8%AF%95C++/",
+        "date": "2026-01-25"
+      },
+    
+      {
+        "title": "备考·快门",
+        "url": "/GWJ2026/2026/01/21/%E6%88%91%E6%83%B3%E8%A1%A8%E8%BE%BE%E7%9A%84/",
+        "date": "2026-01-21"
+      },
+    
+      {
+        "title": "spdlog的基本使用和二次封装",
+        "url": "/GWJ2026/2026/01/16/spdlog%E7%9A%84%E4%BD%BF%E7%94%A8/",
+        "date": "2026-01-16"
+      },
+    
+      {
+        "title": "PAT乙级解析",
+        "url": "/GWJ2026/2026/01/10/PAT%E4%B9%99%E7%BA%A7/",
+        "date": "2026-01-10"
+      },
+    
+      {
+        "title": "QT常用控件--显示类控件",
+        "url": "/GWJ2026/2026/01/08/Qt%E6%98%BE%E7%A4%BA%E7%B1%BB%E6%8E%A7%E4%BB%B6/",
+        "date": "2026-01-08"
+      },
+    
+      {
+        "title": "QT常用控件--按钮 类控件",
+        "url": "/GWJ2026/2026/01/06/QT%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6/",
+        "date": "2026-01-06"
+      },
+    
+      {
+        "title": "QT常用控件--QWidget",
+        "url": "/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/",
+        "date": "2026-01-03"
+      }
+    
+    ]
+    </script>
+  </section>
+
+
+</aside>
+
+    
+  </main>
+
+  <div class="sidebar-backdrop js-sidebar-close" aria-hidden="true"></div>
+
+  
+<footer class="site-footer">
+  <span class="site-footer__left">© 2026 By Wenjun Gao</span>
+  <span class="site-footer__right">Powered by Theme <a href="https://github.com/Homulilly/hexo-theme-flatpaper" target="_blank" rel="noopener">FlatPaper</a></span>
 </footer>
-		</div>
-	</div>
 
-	
+  <div class="search-panel" aria-hidden="true">
+  <div class="search-backdrop js-search-close"></div>
+  <section class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索文章">
+    <span class="tape tape--top-left" aria-hidden="true"></span>
+    <header class="search-head">
+      <h2><span class="green-dot"></span>搜索文章</h2>
+      <button class="icon-button js-search-close" type="button" aria-label="关闭搜索">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
 
-	<div class="right-side-tools-container">
-		<div class="side-tools-container">
-	<ul class="hidden-tools-list">
-		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-plus"></i>
-		</li>
+      </button>
+    </header>
+    <label class="search-field">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
 
-		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-minus"></i>
-		</li>
-
-		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
-			<i class="fa-regular fa-moon"></i>
-		</li>
-
-		<!-- rss -->
-		
-
-		
-
-		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
-			<i class="fa-regular fa-arrow-down"></i>
-		</li>
-	</ul>
-
-	<ul class="visible-tools-list">
-		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
-			<i class="fa-regular fa-cog fa-spin"></i>
-		</li>
-		
-		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
-			<i class="arrow-up fas fa-arrow-up"></i>
-			<span class="percent"></span>
-		</li>
-		
-		
-	</ul>
-</div>
-	</div>
-
-	<div class="image-viewer-container">
-	<img src="">
+      <input id="flatpaper-search" class="search-input" type="search" placeholder="输入关键词，按 Esc 关闭" autocomplete="off">
+    </label>
+    <div class="search-results" data-empty="输入关键词后显示匹配的文章">
+      <p class="search-empty">输入关键词后显示匹配的文章</p>
+    </div>
+  </section>
 </div>
 
-	
-	<div class="search-pop-overlay">
-	<div class="popup search-popup">
-		<div class="search-header">
-			<span class="search-input-field-pre">
-				<i class="fa-solid fa-keyboard"></i>
-			</span>
-			<div class="search-input-container">
-				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
-			</div>
-			<span class="popup-btn-close">
-				<i class="fa-solid fa-times"></i>
-			</span>
-		</div>
-		<div id="search-result">
-			<div id="no-result">
-				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
-			</div>
-		</div>
-	</div>
-</div>
-	
+<script type="application/json" id="flatpaper-post-index">
+[
 
-</main>
+  {
+    "title": "Archives",
+    "url": "/GWJ2026/2026/05/26/Archives/",
+    "date": "2026-05-26",
+    "text": ""
+  },
 
+  {
+    "title": "PAT甲级_图",
+    "url": "/GWJ2026/2026/03/26/PAT%E7%94%B2%E7%BA%A7_%E5%9B%BE/",
+    "date": "2026-03-26",
+    "text": "紧急情况作为城市的紧急救援团队负责人，你将获得一张你所在国家的特殊地图。 该地图显示了一些通过道路连接的分散城市，道路是双向的。 地图上标出了每个城市的救援队数量以及每对城市之间的每条道路的长度。 当其他城市发出紧急求援信息时，你的工作是尽快带领你的士兵前往该地点，同时，在途中尽可能多地调动救援帮手。 输入格式第一行包含四个整数 N，表示城市数量（城市编号从 0 到 N−1），M 表示道路数量，C"
+  },
 
+  {
+    "title": "PAT甲级_树",
+    "url": "/GWJ2026/2026/03/26/PAT_%E6%A0%91/",
+    "date": "2026-03-26",
+    "text": "判断二叉搜索树二叉搜索树 (BST) 递归定义为具有以下属性的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值 它的左、右子树也分别为二叉搜索树 我们将二叉搜索树镜面翻转得到的树称为二叉搜索树的镜像。 现在，给定一个整数序列，请你判断它是否可能是某个二叉搜索树或其镜像进行前序遍历的结果。 输入格式第一行包含整"
+  },
 
-<script src="/GWJ2026/js/build/libs/Swup.min.js"></script>
+  {
+    "title": "高精度除法--大数除小数",
+    "url": "/GWJ2026/2026/03/16/%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%99%A4%E6%B3%95(%E5%A4%A7%E6%95%B0%E9%99%A4%E5%B0%8F%E6%95%B0)/",
+    "date": "2026-03-16",
+    "text": "原题链接 P1480 A/B Problem（高精度除法Ⅰ）题目描述输入两个整数 ，输出它们的商。 输入格式两行，第一行是被除数，第二行是除数。 输出格式一行，商的整数部分。 输入输出样例 #1输入 #112102 输出 #115 说明/提示，。 按位相除在进行除法运算时，从高位到低位依次处理每位数字，将上次余数 ×10+当前位作为被除数，继续进行除法运算。按位相除，每次的商值范围均为 0~9。 "
+  },
 
-<script src="/GWJ2026/js/build/libs/SwupSlideTheme.min.js"></script>
+  {
+    "title": "1021 Deepest Root",
+    "url": "/GWJ2026/2026/03/15/1021%20Deepest%20Root/",
+    "date": "2026-03-15",
+    "text": "原题链接 首先需要判断连通分量，即判断有环无环，用并查集的速度是最快的 并查集： 初始化：p[i]=i，每个节点是自己的老大； 找根：find(x)，递归找老大 + 路径压缩； 合并：不同老大才合并，连通块数减一； 判连通：看最终连通块数是否为 1。 123456789101112int find(int x){ return (x == p[x]) ? x : p[x] = find(p[x])"
+  },
 
-<script src="/GWJ2026/js/build/libs/SwupScriptsPlugin.min.js"></script>
+  {
+    "title": "1020 Tree Traversals",
+    "url": "/GWJ2026/2026/03/15/1020%20Tree%20Traversals/",
+    "date": "2026-03-15",
+    "text": "原题链接 一个二叉树，树中每个节点的权值互不相同。 现在给出它的后序遍历和中序遍历，请你输出它的层序遍历。 输入格式第一行包含整数 N，表示二叉树的节点数。 第二行包含 N 个整数，表示二叉树的后序遍历。 第三行包含 N 个整数，表示二叉树的中序遍历。 输出格式输出一行 N 个整数，表示二叉树的层序遍历。 数据范围1≤N≤30,官方并未给出各节点权值的取值范围，为方便起见，在本网站范围取为 1∼N"
+  },
 
-<script src="/GWJ2026/js/build/libs/SwupProgressPlugin.min.js"></script>
+  {
+    "title": "1004 Counting Leaves",
+    "url": "/GWJ2026/2026/03/14/1004%20_Counting_Leaves/",
+    "date": "2026-03-14",
+    "text": "原题链接 中文解释家庭关系可以用家谱树来表示，给定一个家谱树，你的任务是找出其中没有孩子的成员。 输入格式 第一行包含一个整数 N 表示树中结点总数以及一个整数 M 表示非叶子结点数。 接下来 M 行，每行的格式为： 1ID K ID[1] ID[2] ... ID[K] I**D 是一个两位数字，表示一个非叶子结点编号，K 是一个整数，表示它的子结点数，接下来的 K 个 I**D[i] 也是两位"
+  },
 
-<script src="/GWJ2026/js/build/libs/SwupScrollPlugin.min.js"></script>
+  {
+    "title": "Qt 框架下解决按钮点击误触发窗口拖拽的问题",
+    "url": "/GWJ2026/2026/02/26/Qt%20%E6%A1%86%E6%9E%B6%E4%B8%8B%E8%A7%A3%E5%86%B3%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E8%AF%AF%E8%A7%A6%E5%8F%91%E7%AA%97%E5%8F%A3%E6%8B%96%E6%8B%BD%E7%9A%84%E9%97%AE%E9%A2%98/",
+    "date": "2026-02-26",
+    "text": "问题现象在使用 Qt 开发桌面应用时，发现点击 BtForm 上的按钮时，偶尔会导致主窗口意外移动。 根因分析经过排查，发现问题源于 Qt 的事件处理机制： 事件序列问题：当用户点击按钮时，如果手指有轻微抖动或滑动，Qt 框架可能将一次”点击”事件拆分为： 按钮按下（mousePressEvent） 鼠标移动（mouseMoveEvent） 按钮释放（mouseReleaseEvent） 处理速度"
+  },
 
-<script src="/GWJ2026/js/build/libs/SwupPreloadPlugin.min.js"></script>
+  {
+    "title": "Qt 动画与阴影效果冲突导致界面显示异常",
+    "url": "/GWJ2026/2026/02/09/Qt%20%E5%8A%A8%E7%94%BB%E4%B8%8E%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C%E5%86%B2%E7%AA%81%E5%AF%BC%E8%87%B4%E7%95%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/",
+    "date": "2026-02-09",
+    "text": "问题描述在实现歌词界面向上滑入的动画效果时，发现动画过程中界面显示不全，且存在明显的画面重叠现象。 代码片段1234567//初始化上移对象lrcAnimation = new QPropertyAnimation(lrcPage, &quot;geometry&quot;, this);lrcAnimation-&gt;setDuration(250);lrcAnimation-&gt;setS"
+  },
 
-<script>
-    const swup = new Swup({
-        plugins: [
-            new SwupScriptsPlugin({
-                optin: true,
-            }),
-            new SwupProgressPlugin(),
-            new SwupScrollPlugin({
-                offset: 80,
-            }),
-            new SwupSlideTheme({
-                mainElement: ".main-content-body",
-            }),
-            new SwupPreloadPlugin(),
-        ],
-        containers: ["#swup"],
-    });
+  {
+    "title": "面试考点C++（更新中）",
+    "url": "/GWJ2026/2026/01/25/%E9%9D%A2%E8%AF%95C++/",
+    "date": "2026-01-25",
+    "text": "关于C++的空类 空类里面有什么？ 6 个编译器生成的默认成员函数： 函数 说明 默认构造函数 Empty() 析构函数 ~Empty() 拷贝构造函数 Empty(const Empty&amp;) 拷贝赋值运算符 Empty&amp; operator=(const Empty&amp;) 移动构造函数 (C++11) Empty(Empty&amp;&amp;) 移动赋值运算符 (C++11"
+  },
+
+  {
+    "title": "备考·快门",
+    "url": "/GWJ2026/2026/01/21/%E6%88%91%E6%83%B3%E8%A1%A8%E8%BE%BE%E7%9A%84/",
+    "date": "2026-01-21",
+    "text": "我按下快门其实没想好要留住什么只是想让这一刻有个证据证明我曾把疲惫按在胸口继续往前走 I pressed the shutternot really knowing what I wanted to keep—I just needed this momentto have proofthat I once held my exhaustionagainst my chestand kept wa"
+  },
+
+  {
+    "title": "spdlog的基本使用和二次封装",
+    "url": "/GWJ2026/2026/01/16/spdlog%E7%9A%84%E4%BD%BF%E7%94%A8/",
+    "date": "2026-01-16",
+    "text": "介绍一句话总结：头文件即可用、线程安全、支持异步、格式化友好，性能爆炸。 项目主页：https://github.com/gabime/spdlog 特性 说明 零配置 仅含头文件（header-only），#include 即可用 高性能 每秒可写千万级日志；异步模式下锁竞争极小 线程安全 多线程并发写同一条 sink 无需额外加锁 丰富 Sink 控制台（带颜色）、文件、滚动文件、每日轮换、s"
+  },
+
+  {
+    "title": "PAT乙级解析",
+    "url": "/GWJ2026/2026/01/10/PAT%E4%B9%99%E7%BA%A7/",
+    "date": "2026-01-10",
+    "text": "1001 害死人不偿命的(3n+1)猜想1001 害死人不偿命的(3n+1)猜想 模拟 为奇数，n=(n*2+1)/2，cnt++ 为偶数，n=n/2，cnt++ 12345678910111213141516171819202122int main(){ int n, cnt = 0; cin &gt;&gt; n; if (n == 1) { cout &lt;&lt; 0; return 0"
+  },
+
+  {
+    "title": "QT常用控件--显示类控件",
+    "url": "/GWJ2026/2026/01/08/Qt%E6%98%BE%E7%A4%BA%E7%B1%BB%E6%8E%A7%E4%BB%B6/",
+    "date": "2026-01-08",
+    "text": "代码仓库 labelQLabel可以用来显示文本和图片 属性 说明 text QLabel 中的文本 textFormat 文本的格式Qt::PlainText 纯文本Qt::RichText 富文本（支持 HTML 标签）Qt::MarkdownText Markdown 格式Qt::AutoText 根据文本内容自动决定文本格式 pixmap QLabel 内部包含的图片 scaledCont"
+  },
+
+  {
+    "title": "QT常用控件--按钮 类控件",
+    "url": "/GWJ2026/2026/01/06/QT%E6%8C%89%E9%92%AE%E6%8E%A7%E4%BB%B6/",
+    "date": "2026-01-06",
+    "text": "代码仓库 QPushButton继承自 QAbstractButton。这个类是一个抽象类，是其他按钮的父类。 QPushButton QCheckBox QWidget QAbstractButton QRadioButton QToolButton QAbstractButton 作为 QWidget 的子类，当然也继承了 QWidget 的属性。 Qt 的 API 设计风格是非常清晰的。例如"
+  },
+
+  {
+    "title": "QT常用控件--QWidget",
+    "url": "/GWJ2026/2026/01/03/QT%E6%8E%A7%E4%BB%B6/",
+    "date": "2026-01-03",
+    "text": "代码仓库 QWidget的enable属性 API 说明 isEnabled() 获取到控件的可⽤状态. setEnabled 设置控件是否可使⽤. true 表⽰可⽤, false 表⽰禁⽤. 所谓”禁⽤”指的是该控件不能接收任何⽤⼾的输⼊事件,并且外观上往往是灰⾊的. 如果⼀个widget被禁⽤,则该widget的⼦元素也被禁⽤. 代码创建一个按钮被禁用1234//使⽤代码创建⼀个禁⽤状态的按"
+  }
+
+]
 </script>
 
-
-
-	
-<script src="/GWJ2026/js/build/tools/imageViewer.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/utils.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/main.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/layouts/navbarShrink.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/tools/scrollTopBottom.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/tools/lightDarkSwitch.js" type="module"></script>
-
-<script src="/GWJ2026/js/build/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/GWJ2026/js/build/tools/localSearch.js" type="module"></script>
-
-
-
-
-    
-<script src="/GWJ2026/js/build/tools/codeBlock.js" type="module"></script>
-
-
-
-
-    
-<script src="/GWJ2026/js/build/layouts/lazyload.js" type="module"></script>
-
-
-
-
-    
-<script src="/GWJ2026/js/build/tools/runtime.js"></script>
-
-    
-<script src="/GWJ2026/js/build/libs/odometer.min.js"></script>
-
-    
-<link rel="stylesheet" href="/GWJ2026/assets/odometer-theme-minimal.css">
-
-
-
+  
+<script src="/GWJ2026/js/main.js"></script>
 
   
-<script src="/GWJ2026/js/build/libs/Typed.min.js"></script>
-
-  
-<script src="/GWJ2026/js/build/plugins/typed.js" type="module"></script>
-
-
-
-
-
-
-
-
-    
-<script src="/GWJ2026/js/build/libs/anime.min.js"></script>
-
-
-
-
-
-    
-<script src="/GWJ2026/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/GWJ2026/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/GWJ2026/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-<script src="/GWJ2026/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/GWJ2026/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-
-	
 </body>
-
 </html>

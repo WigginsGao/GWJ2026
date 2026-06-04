@@ -21,26 +21,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wigginsgao.github.io","root":"/GWJ2026/","images":"/GWJ2026/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/GWJ2026/js/config.js" defer></script>
 
-    <meta name="description" content="博客热力图     月更统计     标签统计     分类统计">
+    <meta name="description" content="既然选择了远方，便只顾风雨兼程.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="本站统计数据">
-<meta property="og:url" content="https://wigginsgao.github.io/GWJ2026/heatmap/index.html">
+<meta property="og:title" content="流水账">
+<meta property="og:url" content="https://wigginsgao.github.io/GWJ2026/essay/index.html">
 <meta property="og:site_name" content="南桥几晴秋">
-<meta property="og:description" content="博客热力图     月更统计     标签统计     分类统计">
+<meta property="og:description" content="既然选择了远方，便只顾风雨兼程.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-03T14:19:18.029Z">
-<meta property="article:modified_time" content="2026-06-03T14:19:18.029Z">
+<meta property="article:published_time" content="2026-06-04T03:18:28.000Z">
+<meta property="article:modified_time" content="2026-06-04T04:19:34.405Z">
 <meta property="article:author" content="Wenjun Gao">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wigginsgao.github.io/GWJ2026/heatmap/">
+<link rel="canonical" href="https://wigginsgao.github.io/GWJ2026/essay/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"https://wigginsgao.github.io/GWJ2026/heatmap/index.html","path":"heatmap/index.html","title":"本站统计数据"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://wigginsgao.github.io/GWJ2026/essay/index.html","path":"essay/index.html","title":"流水账"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>本站统计数据 | 南桥几晴秋
+<title>流水账 | 南桥几晴秋
 </title>
   
 
@@ -183,7 +183,7 @@
     
     <div class="post-block" lang="zh-CN"><header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">本站统计数据
+<h1 class="post-title" itemprop="name headline">流水账
 </h1>
 
 <div class="post-meta-container">
@@ -194,28 +194,110 @@
       
       
       
-      <div class="post-body">
-          <blockquote>
-<center><b>博客热力图</b></center>
-</blockquote>
-<div id="heatmapChart" style="width: 100%; height: 200px; margin: 0 auto; border-radius: 5px; padding: 5px;box-shadow: 0 2px 10px #ffa500;"></div>
+      <div class="post-body">    
+    
+    
 
-<blockquote>
-<center><b>月更统计</b></center>
-</blockquote>
-<div id="monthlyChart" style="width: 100%; height: 350px; margin: 0 auto; border-radius: 5px; padding: 5px; box-shadow: 0 2px 10px #ffa500;"></div>
+<style>
+#bber * {
+  box-sizing: border-box;
+}
+ul#waterfall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li.item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border: 1px solid #e3e8f7;
+    padding: 20px;
+    margin: 10px;
+    flex-basis: 100%;
+    border-radius: 12px;
+}
+.bber-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+div#bber-tips {
+    display: flex;
+    justify-content: center;
+}
+#bber p {
+  margin: 0px;
+  padding: 0px;
+}
+.item hr {
+  border: 1px dashed #4259ef23;
+  height: 0px;
+  margin: 8px 0px;
+  display: flex;
+  width: 100%;
+}
+.bber-container-img {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 3px;
+}
+a.fancybox {
+    flex: 1;
+}
+.bber-info, .bber-info-time, .bber-content-link {
+    display: inline-block;
+}
+.bber-content-link {
+    margin-left: 15px;
+}
+.bber-bottom {
+    width: 100%;
+}
+.bber-info-time, .bber-content-link {
+    background-color: rgba(153,153,153,0.169);
+    border-radius: 20px;
+    padding: 0 8px;
+    font-size: .9rem;
+    color: var(--text-color);
+}
+</style>
 
-<blockquote>
-<center><b>标签统计</b></center>
-</blockquote>
-<div id="tagsChart" style="width: 100%; height: 400px; margin: 0 auto; border-radius: 5px; padding: 5px; box-shadow: 0 2px 10px #ffa500;"></div>
+<div id="bber">
+  <section class="timeline page-1">
+    <ul id="waterfall" class="list">
+      
+        
+            <li class="item">
+              <div class="bber-content">
+                <p class="datacont">开启了流水账页面</p>
+                
+              </div>
+              <hr>
+              <div class="bber-bottom">
+                <div class="bber-info">
+                  <div class="bber-info-time">
+                    <i class="far fa-clock"></i>
+                    <time class="datatime" datetime="Thu Jun 04 2026 08:00:00 GMT+0800 (中国标准时间)">2026/6/4</time>
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+        
+      
+    </ul>
+  </section>
+</div>
 
-<blockquote>
-<center><b>分类统计</b></center>
-</blockquote>
-<div id="categoriesChart" style="width: 100%; height: 350px; margin: 0 auto; border-radius: 5px; padding: 5px; box-shadow: 0 2px 10px #ffa500;"></div>
-
-
+    
+    
+    
 
       </div>
       

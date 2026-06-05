@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/GWJ2026/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/GWJ2026/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/GWJ2026/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/GWJ2026/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/GWJ2026/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wigginsgao.github.io","root":"/GWJ2026/","images":"/GWJ2026/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/GWJ2026/js/config.js" defer></script>
+
+    <meta name="description" content="判断二叉搜索树二叉搜索树 (BST) 递归定义为具有以下属性的二叉树：  若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值 它的左、右子树也分别为二叉搜索树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT甲级_树">
+<meta property="og:url" content="https://wigginsgao.github.io/GWJ2026/posts/1b94b7fb/index.html">
+<meta property="og:site_name" content="南桥几晴秋">
+<meta property="og:description" content="判断二叉搜索树二叉搜索树 (BST) 递归定义为具有以下属性的二叉树：  若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值 它的左、右子树也分别为二叉搜索树">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/image-20260325141812970.png">
+<meta property="article:published_time" content="2026-03-26T02:23:16.064Z">
+<meta property="article:modified_time" content="2026-06-01T14:18:25.860Z">
+<meta property="article:author" content="Wenjun Gao">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="PAT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/image-20260325141812970.png">
+
+
+<link rel="canonical" href="https://wigginsgao.github.io/GWJ2026/posts/1b94b7fb/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wigginsgao.github.io/GWJ2026/posts/1b94b7fb/","path":"posts/1b94b7fb/","title":"PAT甲级_树"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PAT甲级_树 | 南桥几晴秋</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/GWJ2026/js/utils.js" defer></script><script src="/GWJ2026/js/motion.js" defer></script><script src="/GWJ2026/js/sidebar.js" defer></script><script src="/GWJ2026/js/next-boot.js" defer></script><script src="/GWJ2026/js/bookmark.js" defer></script><script src="/GWJ2026/js/pjax.js" defer></script>
+
+  
+
+
+
+  <script src="/GWJ2026/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/GWJ2026/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/GWJ2026/atom.xml" title="南桥几晴秋" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/GWJ2026/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">南桥几晴秋</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/GWJ2026/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/GWJ2026/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/GWJ2026/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/GWJ2026/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-流水账"><a href="/GWJ2026/essay/" rel="section"><i class="fas fa-pen fa-fw"></i>流水账</a></li><li class="menu-item menu-item-热力图"><a href="/GWJ2026/heatmap/" rel="section"><i class="anzhiyu-icon-square-poll-vertical fa-fw"></i>热力图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">判断二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">完全二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-1"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%8D%E6%AC%A1%E6%A0%91%E9%81%8D%E5%8E%86"><span class="nav-number">3.</span> <span class="nav-text">再次树遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-2"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">构建二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-3"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-3"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-3"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">5.</span> <span class="nav-text">反转二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-4"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-4"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-4"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E6%B1%82%E5%8F%B3%E8%A7%86%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">层序遍历求右视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">7.</span> <span class="nav-text">完全二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-5"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-5"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-5"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Wenjun Gao</p>
+  <div class="site-description" itemprop="description">既然选择了远方，便只顾风雨兼程.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/GWJ2026/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/GWJ2026/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/GWJ2026/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe title:推荐网站 fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.runoob.com/" title="https:&#x2F;&#x2F;www.runoob.com&#x2F;" rel="noopener" target="_blank">菜鸟教程</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.r2coding.com/#/" title="https:&#x2F;&#x2F;www.r2coding.com&#x2F;#&#x2F;" rel="noopener" target="_blank">Road To Coding</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://cxyonly.fans/" title="https:&#x2F;&#x2F;cxyonly.fans&#x2F;" rel="noopener" target="_blank">大观园</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.408os.cn/" title="https:&#x2F;&#x2F;www.408os.cn&#x2F;" rel="noopener" target="_blank">408真题系统</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.csdn.net/weixin_73397765?spm=1000.2115.3001.5343" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_73397765?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank">我的CSDN</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/gwj-xiao-bai" title="https:&#x2F;&#x2F;gitee.com&#x2F;gwj-xiao-bai" rel="noopener" target="_blank">我的Gitee</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wigginsgao.github.io/GWJ2026/posts/1b94b7fb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/GWJ2026/images/avatar.gif">
+      <meta itemprop="name" content="Wenjun Gao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="南桥几晴秋">
+      <meta itemprop="description" content="既然选择了远方，便只顾风雨兼程.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PAT甲级_树 | 南桥几晴秋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PAT甲级_树
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-26 10:23:16" itemprop="dateCreated datePublished" datetime="2026-03-26T10:23:16+08:00">2026-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-01 22:18:25" itemprop="dateModified" datetime="2026-06-01T22:18:25+08:00">2026-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/GWJ2026/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="判断二叉搜索树"><a href="#判断二叉搜索树" class="headerlink" title="判断二叉搜索树"></a>判断二叉搜索树</h1><p>二叉搜索树 (BST) 递归定义为具有以下属性的二叉树：</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值</li>
+<li>它的左、右子树也分别为二叉搜索树</li>
+</ul>
+<p>我们将二叉搜索树镜面翻转得到的树称为二叉搜索树的镜像。</p>
+<p>现在，给定一个整数序列，请你判断它是否可能是某个二叉搜索树或其镜像进行前序遍历的结果。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 <em>N</em>，表示节点数量。</p>
+<p>第二行包含 <em>N</em> 个整数。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>如果给定整数序列是某个二叉搜索树或其镜像的前序遍历序列，则在第一行输出 <code>YES</code>，否则输出 <code>NO</code>。</p>
+<p>如果你的答案是 <code>YES</code>，则还需要在第二行输出这棵树的后序遍历序列。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤1000</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>  N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, idx;</span><br><span class="line"><span class="type">int</span> preorder[N], inorder[N], postorder[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">build</span><span class="params">(<span class="type">int</span> il, <span class="type">int</span> ir, <span class="type">int</span> pl, <span class="type">int</span> pr, <span class="type">int</span> type)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(il &gt; ir) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="type">int</span> root = preorder[pl];</span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>; <span class="comment">//记录根节点在中序序列中的位置</span></span><br><span class="line">    <span class="keyword">if</span>(type == <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//正常的二叉树</span></span><br><span class="line">        <span class="keyword">for</span>(k = il; k &lt;= ir; k++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span>(inorder[k] == root) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(k &gt; ir) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//没有找到根节点</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//镜面二叉树</span></span><br><span class="line">        <span class="keyword">for</span>(k = ir; k &gt;= il; k--)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span>(inorder[k] == root) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(k &lt; il) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//找完k，开始构建树</span></span><br><span class="line">    <span class="type">bool</span> ans = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">build</span>(il, k<span class="number">-1</span>, pl<span class="number">+1</span>, pl<span class="number">+1</span>+(k<span class="number">-1</span>-il), type)) ans = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">build</span>(k<span class="number">+1</span>, ir, pl<span class="number">+1</span>+(k<span class="number">-1</span>-il)<span class="number">+1</span>, pr, type)) ans = <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    postorder[idx++] = root;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    {</span><br><span class="line">        cin &gt;&gt; preorder[i];</span><br><span class="line">        inorder[i] = preorder[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">sort</span>(inorder, inorder+n); <span class="comment">//中序序列</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">build</span>(<span class="number">0</span>, n<span class="number">-1</span>, <span class="number">0</span>, n<span class="number">-1</span>, <span class="number">0</span>))</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//正常的二叉树</span></span><br><span class="line">        cout &lt;&lt; <span class="string">"YES"</span> &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; postorder[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) cout &lt;&lt; <span class="string">' '</span> &lt;&lt; postorder[i];</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//镜面二叉树</span></span><br><span class="line">        <span class="built_in">reverse</span>(inorder, inorder+n);</span><br><span class="line">        idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">build</span>(<span class="number">0</span>, n<span class="number">-1</span>, <span class="number">0</span>, n<span class="number">-1</span>, <span class="number">1</span>))</span><br><span class="line">        {</span><br><span class="line">            cout &lt;&lt; <span class="string">"YES"</span> &lt;&lt; endl;</span><br><span class="line">            cout &lt;&lt; postorder[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) cout &lt;&lt; <span class="string">' '</span> &lt;&lt;  postorder[i];</span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="string">"NO"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="完全二叉搜索树"><a href="#完全二叉搜索树" class="headerlink" title="完全二叉搜索树"></a>完全二叉搜索树</h1><p>二叉搜索树 (BST) 递归定义为具有以下属性的二叉树：</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值</li>
+<li>它的左、右子树也分别为二叉搜索树</li>
+</ul>
+<p>完全二叉树 (CBT) 定义为除最深层外的其他层的结点数都达到最大个数，最深层的所有结点都连续集中在最左边的二叉树。</p>
+<p>现在，给定 <em>N</em> 个不同非负整数，表示 <em>N</em> 个结点的权值，用这 <em>N</em> 个结点可以构成唯一的完全二叉搜索树。</p>
+<p>请你输出该完全二叉搜索树的层序遍历。</p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 <em>N</em>，表示结点个数。</p>
+<p>第二行包含 <em>N</em> 个不同非负整数，表示每个结点的权值。</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>共一行，输出给定完全二叉搜索树的层序遍历序列。</p>
+<h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤1000,<br>结点权值不超过 2000。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>  n = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> w[N], ans[N];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span>&amp; idx)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(u*<span class="number">2</span> &lt;= n) <span class="built_in">dfs</span>(u*<span class="number">2</span>, idx);</span><br><span class="line">	ans[u] = w[idx++];</span><br><span class="line">	<span class="keyword">if</span>(u*<span class="number">2</span><span class="number">+1</span> &lt;= n) <span class="built_in">dfs</span>(u*<span class="number">2</span><span class="number">+1</span>, idx);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; w[i];</span><br><span class="line">	<span class="comment">//中序序列是有序的</span></span><br><span class="line">	<span class="built_in">sort</span>(w, w+n);</span><br><span class="line">	<span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">1</span>, idx); </span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span>(i != <span class="number">1</span>) cout &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">		cout &lt;&lt; ans[i];</span><br><span class="line">	}</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="再次树遍历"><a href="#再次树遍历" class="headerlink" title="再次树遍历"></a>再次树遍历</h1><p>通过使用栈可以以非递归方式实现二叉树的中序遍历。</p>
+<p>例如，假设遍历一个如下图所示的 6 节点的二叉树（节点编号从 1 到 6）。</p>
+<p>则堆栈操作为：push(1); push(2); push(3); pop(); pop(); push(4); pop(); pop(); push(5); push(6); pop(); pop()。</p>
+<p>我们可以从此操作序列中生成唯一的二叉树。</p>
+<p>你的任务是给出这棵树的后序遍历。</p>
+<h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 <em>N</em>，表示树中节点个数。</p>
+<p>树中节点编号从 1 到 <em>N</em>。</p>
+<p>接下来 2<em>N</em> 行，每行包含一个栈操作，格式为：</p>
+<ul>
+<li><code>Push X</code>，将编号为 <em>X</em> 的节点压入栈中。</li>
+<li><code>Pop</code>，弹出栈顶元素。</li>
+</ul>
+<h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出这个二叉树的后序遍历序列。</p>
+<p>数据保证有解，数和数之间用空格隔开，末尾不能有多余空格。</p>
+<h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤30</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; preorder ,inorder, postorder;</span><br><span class="line">stack&lt;<span class="type">int</span>&gt; st;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> il, <span class="type">int</span> ir, <span class="type">int</span> pl, <span class="type">int</span> pr)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(il &gt; ir) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="type">int</span> root = preorder[pl];</span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>; <span class="comment">//记录根节点在中序序列中的位置</span></span><br><span class="line">    <span class="keyword">for</span>(k = il; k &lt;= ir; k++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span>(inorder[k] == root) <span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(k &gt; il) <span class="built_in">build</span>(il, k<span class="number">-1</span>, pl<span class="number">+1</span>, pl<span class="number">+1</span>+(k<span class="number">-1</span>-il));</span><br><span class="line">    <span class="keyword">if</span>(k &lt; ir) <span class="built_in">build</span>(k<span class="number">+1</span>, ir, pl<span class="number">+1</span><span class="number">+1</span>+k<span class="number">-1</span>-il, pr);</span><br><span class="line">    </span><br><span class="line">    postorder.<span class="built_in">push_back</span>(root);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> x; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>*n; i++)</span><br><span class="line">    {</span><br><span class="line">        string op; cin &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">"Push"</span>)</span><br><span class="line">        {</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            preorder.<span class="built_in">push_back</span>(x);</span><br><span class="line">            st.<span class="built_in">push</span>(x);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">"Pop"</span>)</span><br><span class="line">        {</span><br><span class="line">            inorder.<span class="built_in">push_back</span>(st.<span class="built_in">top</span>());</span><br><span class="line">            st.<span class="built_in">pop</span>();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">build</span>(<span class="number">0</span>, n<span class="number">-1</span>, <span class="number">0</span>, n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span>(i != <span class="number">0</span>) cout &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        cout &lt;&lt; postorder[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="构建二叉搜索树"><a href="#构建二叉搜索树" class="headerlink" title="构建二叉搜索树"></a>构建二叉搜索树</h1><p>二叉搜索树 (BST) 递归定义为具有以下属性的二叉树：</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值</li>
+<li>它的左、右子树也分别为二叉搜索树</li>
+</ul>
+<p>给定二叉树的具体结构以及一系列不同的整数，只有一种方法可以将这些数填充到树中，以使结果树满足 BST 的定义。</p>
+<p>请你输出结果树的层序遍历。</p>
+<p><img data-src="https://raw.githubusercontent.com/WigginsGao/ImgHosting/main/img/image-20260325141812970.png" alt="image-20260325141812970"></p>
+<h4 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含一个正整数 <em>N</em>，表示树的结点个数。</p>
+<p>所有结点的编号为 0∼<em>N</em>−1，并且编号为 0 的结点是根结点。</p>
+<p>接下来 <em>N</em> 行，第 <em>i</em> 行（从 0 计数）包含结点 <em>i</em> 的左右子结点编号。如果该结点的某个子结点不存在，则用 −1 表示。</p>
+<p>最后一行，包含 <em>N</em> 个不同的整数，表示要插入树中的数值。</p>
+<h4 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出结果树的层序遍历序列。</p>
+<h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤100</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span> </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> l[N], r[N];</span><br><span class="line"><span class="type">int</span> w[N], tr[N];</span><br><span class="line"><span class="type">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span>&amp; k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(u == <span class="number">-1</span>) <span class="keyword">return</span> ;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">dfs</span>(l[u], k);</span><br><span class="line">	tr[u] = w[k++];</span><br><span class="line">	<span class="built_in">dfs</span>(r[u], k);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="type">int</span> hh = <span class="number">0</span>, tt = <span class="number">0</span>;</span><br><span class="line">	q[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">//存的是节点编号 </span></span><br><span class="line">	<span class="keyword">while</span>(hh &lt;= tt)</span><br><span class="line">	{</span><br><span class="line">		<span class="type">int</span> t = q[hh++];</span><br><span class="line">		<span class="keyword">if</span>(l[t] != <span class="number">-1</span>) q[++tt] = l[t];</span><br><span class="line">		<span class="keyword">if</span>(r[t] != <span class="number">-1</span>) q[++tt] = r[t];</span><br><span class="line">	}</span><br><span class="line">	cout &lt;&lt; tr[q[<span class="number">0</span>]];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		cout &lt;&lt; <span class="string">' '</span> &lt;&lt; tr[q[i]];</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; l[i] &gt;&gt; r[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; w[i];</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">sort</span>(w, w+n);  <span class="comment">// 得到中序序列</span></span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">0</span>, k);</span><br><span class="line">	<span class="built_in">bfs</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="反转二叉树"><a href="#反转二叉树" class="headerlink" title="反转二叉树"></a>反转二叉树</h1><p>现在，请你证明你会反转二叉树。</p>
+<h4 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含一个整数 <em>N</em>，表示树的结点数量。</p>
+<p>所有结点编号从 0 到 <em>N</em>−1。</p>
+<p>接下来 <em>N</em> 行，每行对应一个 0∼<em>N</em>−1 的结点，给出该结点的左右子结点的编号，如果该结点的某个子结点不存在，则用 <code>−</code> 表示。</p>
+<h4 id="输出格式-4"><a href="#输出格式-4" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出反转后二叉树的层序遍历序列和中序遍历序列，每个序列占一行。</p>
+<p>相邻数字之间用空格隔开，末尾不得有多余空格。</p>
+<h4 id="数据范围-4"><a href="#数据范围-4" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤10</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">15</span>;</span><br><span class="line"><span class="type">int</span> tr[N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; inorder, florder;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">{</span><br><span class="line">	<span class="type">int</span> l, r;</span><br><span class="line">}a[N];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(u == <span class="number">-1</span>) <span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">if</span>(a[u].r != <span class="number">-1</span>) <span class="built_in">dfs</span>(a[u].r);</span><br><span class="line">	inorder.<span class="built_in">push_back</span>(u);</span><br><span class="line">	<span class="keyword">if</span>(a[u].l != <span class="number">-1</span>) <span class="built_in">dfs</span>(a[u].l);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">	q.<span class="built_in">push</span>(u);</span><br><span class="line">	<span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">	{</span><br><span class="line">		<span class="type">int</span> t = q.<span class="built_in">front</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		florder.<span class="built_in">push_back</span>(t);</span><br><span class="line">		<span class="keyword">if</span>(a[t].r != <span class="number">-1</span>) q.<span class="built_in">push</span>(a[t].r);</span><br><span class="line">		<span class="keyword">if</span>(a[t].l != <span class="number">-1</span>) q.<span class="built_in">push</span>(a[t].l);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="type">char</span> lc, rc; cin &gt;&gt; lc &gt;&gt; rc;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">isdigit</span>(lc)) a[i].l = lc-<span class="string">'0'</span>, st[lc-<span class="string">'0'</span>] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span> a[i].l= <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">isdigit</span>(rc)) a[i].r = rc-<span class="string">'0'</span>, st[rc-<span class="string">'0'</span>] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span> a[i].r = <span class="number">-1</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">//找根节点</span></span><br><span class="line">	<span class="type">int</span> root = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span>(st[i] == <span class="literal">false</span>)</span><br><span class="line">		{</span><br><span class="line">			root = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		} </span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">dfs</span>(root);</span><br><span class="line">	<span class="built_in">bfs</span>(root);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span>(i != <span class="number">0</span>) cout &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">		cout &lt;&lt;florder[i];</span><br><span class="line">	}</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span>(i != <span class="number">0</span>) cout &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">		cout &lt;&lt; inorder[i]; </span><br><span class="line">	}</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="层序遍历求右视图"><a href="#层序遍历求右视图" class="headerlink" title="层序遍历求右视图"></a>层序遍历求右视图</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">rightSideView</span><span class="params">(<span class="type">int</span> root)</span> </span>{</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(root);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) {</span><br><span class="line">        <span class="comment">// 🔥 关键：先拿到当前层的大小！</span></span><br><span class="line">        <span class="type">int</span> sz = q.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 🔥 遍历当前这一层所有节点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sz; i++) {</span><br><span class="line">            <span class="type">int</span> t = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 🔥 每一层最后一个，就是右视图！</span></span><br><span class="line">            <span class="keyword">if</span> (i == sz - <span class="number">1</span>) {</span><br><span class="line">                res.<span class="built_in">push_back</span>(t);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (l[t] != <span class="number">-1</span>) q.<span class="built_in">push</span>(l[t]);</span><br><span class="line">            <span class="keyword">if</span> (r[t] != <span class="number">-1</span>) q.<span class="built_in">push</span>(r[t]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h1><p>给定一个树，请你判断它是否是完全二叉树。</p>
+<h4 id="输入格式-5"><a href="#输入格式-5" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 <em>N</em>，表示树的结点个数。</p>
+<p>树的结点编号为 0∼<em>N</em>−1。</p>
+<p>接下来 <em>N</em> 行，每行对应一个结点，并给出该结点的左右子结点的编号，如果某个子结点不存在，则用 <code>-</code> 代替。</p>
+<h4 id="输出格式-5"><a href="#输出格式-5" class="headerlink" title="输出格式"></a>输出格式</h4><p>如果是完全二叉树，则输出 <code>YES</code> 以及最后一个结点的编号。</p>
+<p>如果不是，则输出 <code>NO</code> 以及根结点的编号。</p>
+<h4 id="数据范围-5"><a href="#数据范围-5" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤<em>N</em>≤20</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">{</span><br><span class="line">	<span class="type">int</span> l, r;</span><br><span class="line">}a[N];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> lastu, maxk;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(u == <span class="number">-1</span>) <span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">if</span>(k &gt; maxk)</span><br><span class="line">	{</span><br><span class="line">		maxk = k;</span><br><span class="line">		lastu = u; </span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">dfs</span>(a[u].l, <span class="number">2</span>*k);</span><br><span class="line">	<span class="built_in">dfs</span>(a[u].r, <span class="number">2</span>*k<span class="number">+1</span>); </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		string ls, rs; cin &gt;&gt; ls &gt;&gt; rs;</span><br><span class="line">		<span class="keyword">if</span>(ls == <span class="string">"-"</span>) a[i].l = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		{</span><br><span class="line">			a[i].l = <span class="built_in">stoi</span>(ls);</span><br><span class="line">			st[a[i].l] = <span class="literal">true</span>;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(rs == <span class="string">"-"</span>) a[i].r = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		{</span><br><span class="line">			a[i].r = <span class="built_in">stoi</span>(rs);</span><br><span class="line">			st[a[i].r] = <span class="literal">true</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">//找根节点 </span></span><br><span class="line">	<span class="type">int</span> root = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span>(st[i] == <span class="literal">false</span>)</span><br><span class="line">		{</span><br><span class="line">			root = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">dfs</span>(root, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(maxk &gt; n) cout &lt;&lt; <span class="string">"NO "</span> &lt;&lt; root;</span><br><span class="line">	<span class="keyword">else</span> cout &lt;&lt; <span class="string">"YES "</span> &lt;&lt; lastu;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">} </span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/GWJ2026/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/GWJ2026/tags/PAT/" rel="tag"># PAT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/GWJ2026/posts/34d453fd/" rel="prev" title="高精度除法--大数除小数">
+                  <i class="fa fa-angle-left"></i> 高精度除法--大数除小数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/GWJ2026/posts/8eb1dbc3/" rel="next" title="PAT甲级_图">
+                  PAT甲级_图 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Wenjun Gao</span>
+  </div>
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+-->
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/WigginsGao" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+        
+        <script>
+            if(document.getElementById('heatmapChart')) {
+                const heatmapChart = echarts.init(document.getElementById('heatmapChart'), 'light');
+                const containerWidth = document.getElementById('heatmapChart').offsetWidth;
+                const cellSize = Math.max(Math.floor(containerWidth / 60));
+                heatmapChart.setOption({
+                    tooltip: {
+                        position: 'top',
+                        formatter: params => `${params.value[0]}: ${params.value[1]} Articles`
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: Math.max(...[["2026-01-03",1],["2026-01-06",1],["2026-01-08",1],["2026-01-10",1],["2026-01-16",1],["2026-01-21",1],["2026-01-25",1],["2026-02-09",1],["2026-02-26",1],["2026-03-14",1],["2026-03-15",2],["2026-03-16",1],["2026-03-26",2],["2026-05-26",1]].map(item => item[1])),
+                        calculable: false,
+                        orient: 'horizontal',
+                        right: '5%',
+                        bottom: '5%',
+                        inRange: { color: ['#FFEFD5', '#FFA07A', '#FF4500'] }
+                    },
+                    calendar: {
+                        top: '20%',
+                        left: 'center',
+                        range: new Date().getFullYear(),
+                        cellSize: cellSize,
+                        splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                        itemStyle: { borderWidth: 1, borderColor: '#E0E0E0' },
+                        dayLabel: { firstDay: 1, fontSize: 12, color: '#333', show: false },
+                        monthLabel: { fontSize: 12, color: '#555' }
+                    },
+                    series: [{
+                        type: 'heatmap',
+                        coordinateSystem: 'calendar',
+                        data: [["2026-01-03",1],["2026-01-06",1],["2026-01-08",1],["2026-01-10",1],["2026-01-16",1],["2026-01-21",1],["2026-01-25",1],["2026-02-09",1],["2026-02-26",1],["2026-03-14",1],["2026-03-15",2],["2026-03-16",1],["2026-03-26",2],["2026-05-26",1]]
+                    }]
+                });
+                heatmapChart.on('click', function(params) {
+                    if (params.componentType === 'series') {
+                        const dateStr = params.value[0];
+                        const dateParts = dateStr.split('-');
+                        const year = parseInt(dateParts[0], 10);
+                        const month = parseInt(dateParts[1], 10);
+                        const formattedMonth = `${year}/${String(month).padStart(2, '0')}`;
+                        window.location.href = '/archives/' + formattedMonth;
+                    }
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('monthlyChart')) {
+                const monthlyChart = echarts.init(document.getElementById('monthlyChart'), 'light');
+                monthlyChart.setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: ["2026-01","2026-02","2026-03","2026-05"],
+                        axisLabel: { fontSize: 12 }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { type: 'dashed', color: '#ccc' } }
+                    },
+                    series: [{
+                        name: 'Articles',
+                        type: 'line',
+                        data: [7,2,6,1],
+                        smooth: true,
+                        lineStyle: { color: '#5470C6', width: 2 },
+                        itemStyle: { color: '#5470C6' },
+                        areaStyle: { color: 'rgba(84, 112, 198, 0.4)' },
+                        symbolSize: 10,
+                        animationDuration: 1000
+                    }]
+                });
+                monthlyChart.on('click', function(params) {
+                    if (params.componentType === 'series') {
+                        const year = params.name.split('-')[0];
+                        const month = params.name.split('-')[1];
+                        window.location.href = '/archives/' + year + '/' + month;
+                    }
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('tagsChart')) {
+                const tagsChart = echarts.init(document.getElementById('tagsChart'), 'light');
+                tagsChart.setOption({
+                    xAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { type: 'dashed', color: '#ccc' } }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: [{"name":"算法","value":7},{"name":"PAT","value":6},{"name":"Qt","value":5},{"name":"常用控件","value":3},{"name":"Bug","value":2},{"name":"解决方案","value":2},{"name":"按钮","value":1},{"name":"QWidget","value":1}].map(category => category.name).reverse(),
+                        axisLabel: { fontSize: 12 }
+                    },
+                    series: [{
+                        name: 'Category Count',
+                        type: 'bar',
+                        data: [{"name":"算法","value":7},{"name":"PAT","value":6},{"name":"Qt","value":5},{"name":"常用控件","value":3},{"name":"Bug","value":2},{"name":"解决方案","value":2},{"name":"按钮","value":1},{"name":"QWidget","value":1}].map(category => category.value).reverse(),
+                        label: {
+                            show: true,
+                            position: 'right',
+                            fontSize: 12
+                        },
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#91CC75' },
+                                { offset: 1, color: '#73C0DE' }
+                            ])
+                        },
+                        animationDuration: 1000
+                    }]
+                });
+                tagsChart.on('click', function(params) {
+                    if (params.componentType === 'series') {
+                        const category = params.name;
+                        window.location.href = '/categories/' + category;
+                    }
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('categoriesChart')) {
+                const categoriesChart = echarts.init(document.getElementById('categoriesChart'), 'light');
+                categoriesChart.setOption({
+                    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+                    series: [{
+                        type: 'pie',
+                        radius: '60%',
+                        data: [{"name":"算法练习","value":7},{"name":"QT学习","value":3},{"name":"Qt","value":2},{"name":"spdlog","value":1},{"name":"杂记","value":1}],
+                        label: {
+                            position: 'outside',
+                            formatter: '{b} {c} ({d}%)',
+                            fontSize: 12
+                        },
+                        color: ['#5470C6', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452', '#9A60B4'],
+                        animationDuration: 1000
+                    }],
+                    legend: {
+                        bottom: '0',
+                        left: 'center',
+                        data: [{"name":"算法练习","value":7},{"name":"QT学习","value":3},{"name":"Qt","value":2},{"name":"spdlog","value":1},{"name":"杂记","value":1}].map(tag => tag.name),
+                        textStyle: { fontSize: 12 }
+                    }
+                });
+                categoriesChart.on('click', function(params) {
+                    if (params.componentType === 'series') {
+                        const tag = params.name;
+                        window.location.href = '/tags/' + tag;
+                    }
+                });
+            }
+        </script>
+    
+    </body>
+</html>
